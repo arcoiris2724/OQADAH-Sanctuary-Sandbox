@@ -64,3 +64,18 @@ p {
 .spiral {
   animation: pulseSpiral 4s ease-in-out infinite;
 }
+.intro {
+  font-family: 'Georgia', serif;
+  font-size: 1.4em;
+  text-align: center;
+  padding-top: 60px;
+  color: #eaeaea;
+  opacity: 0;
+  animation: fadeIntro 4s ease-in-out forwards;
+}
+
+@keyframes fadeIntro {
+  to {
+    opacity: 1;
+  }
+}
