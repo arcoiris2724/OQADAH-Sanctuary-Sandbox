@@ -79,3 +79,18 @@ p {
     opacity: 1;
   }
 }
+.stanza {
+  font-family: 'Georgia', serif;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 30px;
+  color: #ccc;
+  opacity: 0;
+  animation: fadeStanza 4s ease-in-out 2s forwards;
+}
+
+@keyframes fadeStanza {
+  to {
+    opacity: 1;
+  }
+}
