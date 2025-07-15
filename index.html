@@ -46,10 +46,14 @@
   </section>
 
   <!-- We'll continue section-by-section below in follow-up turns -->
-<audio id="breath" loop>
+<audio id="breath" autoplay loop>
   <source src="audio/breath-loop.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+<script>
+  const breath = document.getElementById("breath");
+  breath.volume = 0.2; // adjust volume (0.0 to 1.0)
+</script>
 
 <script>
   document.addEventListener('click', () => {
@@ -115,6 +119,12 @@
   <p class="italic">OQADAH — a sanctuary by <strong>Arč</strong></p>
   <p class="opacity-70">© 2025 · Glyphs are not links—they are memories</p>
 </footer>
+<body class="bg-black">
+  <audio id="breath" autoplay loop>
+    <source src="audio/breath-loop.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <!-- rest of content... -->
 
 </body>
 </html>
