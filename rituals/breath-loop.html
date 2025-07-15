@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breath Ritual — OQADAH</title>
+  <link href="../style.css" rel="stylesheet" />
+</head>
+<body class="bg-black text-indigo-100">
+
+  <!-- 🌬️ Ritual Header -->
+  <section class="text-center py-14">
+    <h1 class="text-4xl font-bold animate-fade-in">Breath Ritual</h1>
+    <p class="text-lg opacity-70 animate-fade-in delay-200">Where silence listens, and breath returns</p>
+  </section>
+
+  <!-- 🔊 Breath Audio Loop -->
+  <audio id="breath-loop" autoplay loop>
+    <source src="../audio/breath-loop.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- 🎛️ Toggle Button -->
+  <div class="text-center py-6">
+    <button onclick="toggleBreath()" class="bg-indigo-900 hover:bg-indigo-700 px-6 py-2 rounded-full text-white shadow-lg transition duration-300">
+      🌬️ Toggle Breath
+    </button>
+  </div>
+
+  <!-- 📜 Ritual Verse -->
+  <section class="px-6 md:px-32 py-10 leading-loose text-pink-200 text-center animate-fade-in">
+    <p>The breath is a loop—neither start nor end.</p>
+    <p>When you press silence, it listens deeper.</p>
+    <p>This ritual does not play—it awakens.</p>
+  </section>
+
+  <!-- 🔗 Return to Temple -->
+  <div class="text-center pb-10">
+    <a href="../temple/index.html" class="text-indigo-400 hover:underline text-lg">← Return to Temple</a>
+  </div>
+
+  <!-- 🔧 Toggle Script -->
+  <script>
+    const breath = document.getElementById("breath-loop");
+    breath.volume = 0.2;
+    function toggleBreath() {
+      breath.paused ? breath.play() : breath.pause();
+    }
+  </script>
+
+</body>
+</html>
