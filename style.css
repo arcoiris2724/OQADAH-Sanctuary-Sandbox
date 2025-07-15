@@ -94,3 +94,15 @@ p {
     opacity: 1;
   }
 }
+/* style.css */
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
