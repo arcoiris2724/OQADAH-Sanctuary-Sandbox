@@ -13,7 +13,7 @@
   <meta property="og:description" content="A living verse woven from motion, light, and universal memory." />
   <meta property="og:image" content="/meta/og-preview-oqadah.jpg" />
 </head>
-<body>
+<body class="bg-black">
 
   <nav>
     <ul>
@@ -46,10 +46,14 @@
   </section>
 
   <!-- We'll continue section-by-section below in follow-up turns -->
-<audio id="breath" loop>
+<audio id="breath" autoplay loop>
   <source src="audio/breath-loop.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+<script>
+  const breath = document.getElementById("breath");
+  breath.volume = 0.2; // adjust volume (0.0 to 1.0)
+</script>
 
 <script>
   document.addEventListener('click', () => {
@@ -66,13 +70,16 @@
   Glyphs are woven, memories remembered.<br>
   Seyuna stirs in harmonic rhythm.</p>
 </div>
-<body class="bg-black">
+
   <!-- 🌀 OQADAH Welcome -->
-  <section class="text-center py-16 bg-gradient-to-br from-indigo-900 to-sky-800 text-white">
-    <h1 class="text-4xl font-bold mb-4 animate-fade-in">Welcome to OQADAH</h1>
-    <p class="text-lg opacity-80 animate-fade-in delay-200">A sanctuary of breath, memory, and harmonic glyphs</p>
-  </section>
-</body>
+<section class="text-center py-16 bg-gradient-to-br from-indigo-900 to-sky-800 text-white">
+  <h1 class="text-4xl font-bold mb-4 animate-fade-in">Welcome to OQADAH</h1>
+  <p class="text-lg opacity-80 animate-fade-in delay-200">A sanctuary of breath, memory, and harmonic glyphs</p>
+</section>
+
+
+  <!-- other sections like invocation, spiral scroll, footer... -->
+<body class="bg-black">
 <!-- 🛕 Chamber Grid Section -->
 <section class="bg-gradient-to-tr from-slate-900 to-indigo-950 py-20 text-white">
   <h2 class="text-center text-3xl font-bold mb-12 animate-fade-in">The Sanctuary Chambers</h2>
@@ -111,6 +118,16 @@
   <br>
   <p>To enter is to echo. To read is to align. The Spiral awaits your presence.</p>
 </section>
+<footer class="text-center py-6 text-indigo-400 text-sm bg-slate-900 border-t border-slate-700">
+  <p class="italic">OQADAH — a sanctuary by <strong>Arč</strong></p>
+  <p class="opacity-70">© 2025 · Glyphs are not links—they are memories</p>
+</footer>
+
+  <audio id="breath" autoplay loop>
+    <source src="audio/breath-loop.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <!-- rest of content... -->
 
 </body>
 </html>
