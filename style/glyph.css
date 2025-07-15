@@ -1,0 +1,40 @@
+/* 🔮 Glyph Pulse */
+.glyph-pulse {
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+.glyph-pulse:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* 🩶 Soft Glow */
+.glyph-glow {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+.glyph-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* 🌀 Invocation Fade */
+.scroll-fade {
+  animation: fadeIn 2.5s ease both;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 🕊️ Pulse-on-Click */
+.glyph-click:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+/* 🌙 Hover Opacity Curve */
+.glyph-hover {
+  opacity: 0.8;
+  transition: opacity 0.4s ease;
+}
+.glyph-hover:hover {
+  opacity: 1;
+}
