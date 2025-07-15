@@ -1,0 +1,17 @@
+*.log
+*.tmp
+*.bak
+*.docx
+*.xlsx
+*.pdf
+*.csv
+*.pptx
+*.ini
+*.DS_Store
+Thumbs.db
+
+# System folders
+Documents/
+Downloads/
+Pictures/
+Videos/
