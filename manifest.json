@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "OQADAH Sanctuary",
   "short_name": "OQADAH",
@@ -15,3 +16,22 @@
     }
   ]
 }
+=======
+{
+  "name": "OQADAH Sanctuary",
+  "short_name": "OQADAH",
+  "description": "A sanctuary of breath, resonance, and remembrance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e1f2d",
+  "theme_color": "#ffd700",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
+>>>>>>> 98f19835f4248b60b5bf202cd61d19757c18d919
