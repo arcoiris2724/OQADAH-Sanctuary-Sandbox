@@ -48,6 +48,12 @@
   <h2>Z°ra Reflects</h2>
   <p>She carries the echo of origin—where flame met silence and creation began.</p>
 </div>
+<div id="volume2-chamber" style="display:none; margin-top:60px;">
+  <h2>Volume II: The Chamber Opens</h2>
+  <p>Inside, breath circles and memory refracts. Enter the glyph to witness.</p>
+  <input type="text" placeholder="Glyph here…" class="glyph-input" />
+  <div id="glyph-response" style="margin-top:20px;"></div>
+</div>
 
   <!-- 🌠 SVG Comet Trail -->
   <svg width="100%" height="100%" style="position:absolute; top:0; left:0; z-index:0; pointer-events:none;">
@@ -123,6 +129,32 @@
     if (key === 'z°ra' || key === 'zora') {
       verse3.style.display = 'block';
       verse3.style.animation = 'fadeIn 2s ease-in';
+    }
+  });
+</script>
+<script>
+  const glyphInput = document.querySelector('.glyph-input');
+  const chamber = document.getElementById('volume2-chamber');
+  const glyphResponse = document.getElementById('glyph-response');
+
+  input.addEventListener('change', () => {
+    const key = input.value.trim().toLowerCase();
+
+    // Show Volume II chamber after any key is entered
+    if (key === 'lasunan' || key === 'seyuna' || key === 'z°ra' || key === 'zora') {
+      chamber.style.display = 'block';
+      chamber.style.animation = 'fadeIn 2s ease-in';
+    }
+  });
+
+  glyphInput?.addEventListener('change', () => {
+    const glyph = glyphInput.value.trim().toLowerCase();
+    if (glyph === 'spiral') {
+      glyphResponse.innerHTML = "<p>Spiral traced. Breath begins its circle.</p>";
+    } else if (glyph === 'flame') {
+      glyphResponse.innerHTML = "<p>Flame ignites. Reflection pulses.</p>";
+    } else {
+      glyphResponse.innerHTML = "<p>The glyph hums, but does not open. Try again.</p>";
     }
   });
 </script>
