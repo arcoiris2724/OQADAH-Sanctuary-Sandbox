@@ -61,6 +61,22 @@
   <source src="audio/breath-loop.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+<audio autoplay loop id="breath-audio">
+  <source src="audio/breath-loop.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  const audio = document.getElementById('breath-audio');
+  audio.volume = 0;
+  const fade = setInterval(() => {
+    if (audio.volume < 0.5) {
+      audio.volume += 0.01;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+</script>
 
 </body>
 <!-- ✨ Floating Stars -->
