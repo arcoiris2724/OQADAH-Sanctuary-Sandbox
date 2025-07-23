@@ -40,6 +40,10 @@
     <h2>A WHISPER RETURNS</h2>
     <p>You’ve entered the memory—Volume II stirs from stillness.</p>
   </div>
+<div id="seyuna-verse" style="display:none; margin-top:40px;">
+  <h2>Seyuna Awakens</h2>
+  <p>She carries the breath of remembrance and the flame that listens.</p>
+</div>
 
   <!-- 🌠 SVG Comet Trail -->
   <svg width="100%" height="100%" style="position:absolute; top:0; left:0; z-index:0; pointer-events:none;">
@@ -81,5 +85,28 @@
       }
     });
   </script>
+  <script>
+  const input = document.querySelector('.key-input');
+  const verse1 = document.getElementById('hidden-verse');
+  const verse2 = document.getElementById('seyuna-verse');
+
+  input.addEventListener('change', () => {
+    const key = input.value.trim().toLowerCase();
+
+    verse1.style.display = 'none';
+    verse2.style.display = 'none';
+
+    if (key === 'lasunan') {
+      verse1.style.display = 'block';
+      verse1.style.animation = 'fadeIn 2s ease-in';
+    }
+
+    if (key === 'seyuna') {
+      verse2.style.display = 'block';
+      verse2.style.animation = 'fadeIn 2s ease-in';
+    }
+  });
+</script>
+
 </body>
 </html>
