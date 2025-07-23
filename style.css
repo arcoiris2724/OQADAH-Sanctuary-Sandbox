@@ -1,64 +1,23 @@
 <<<<<<< HEAD
 /* Shared CSS styles */
 =======
-/* Base Settings */
+/* 🌌 Base Styling */
 body {
+  position: relative;
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(to right, #0e1f2d, #1d364c);
-  color: #f4f4f4;
-  scroll-behavior: smooth;
+  background: radial-gradient(ellipse at bottom, #0a0a1a 0%, #000 100%);
+  color: #fff;
+  overflow-x: hidden;
 }
 
-/* Navigation */
-nav {
-  background-color: #101e2f;
-  padding: 1em;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  gap: 2em;
-  padding: 0;
-  margin: 0;
-}
-
-nav a {
-  color: #00c2ff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #ffd700;
-}
-
-/* Sections */
-section {
-  padding: 4em 2em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-h1, h2 {
-  font-family: "Cinzel", serif;
-  font-weight: 600;
-  color: #ffd700;
-  margin-bottom: 0.5em;
-}
-
-p {
-  max-width
->>>>>>> 98f19835f4248b60b5bf202cd61d19757c18d919
+/* 🖼️ Gateway Styling */
 .film-gateway {
   text-align: center;
   margin-top: 80px;
   animation: fadeIn 2s ease-in;
+  position: relative;
+  z-index: 1;
 }
 
 .poster-img {
@@ -68,6 +27,7 @@ p {
   box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
 
+/* 📝 Verse & Key Input */
 .verse h1 {
   font-size: 2em;
   margin-top: 30px;
@@ -94,14 +54,10 @@ p {
   margin-top: 10px;
 }
 
+/* ✨ Motion Layers */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
-}
-body {
-  background: radial-gradient(ellipse at bottom, #0a0a1a 0%, #000 100%);
-  overflow-x: hidden;
-  color: #fff;
 }
 
 @keyframes shimmer {
@@ -117,25 +73,5 @@ body {
   background: #fff;
   border-radius: 50%;
   animation: shimmer 4s infinite ease-in-out;
-}
-.star {
   z-index: 0;
-}
-
-.film-gateway {
-  position: relative;
-  z-index: 1;
-}
-.star:nth-child(odd) {
-  width: 2px;
-  height: 2px;
-}
-
-.star:nth-child(even) {
-  width: 3px;
-  height: 3px;
-}
-body {
-  position: relative;
-  overflow-x: hidden;
 }
