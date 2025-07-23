@@ -75,3 +75,31 @@ body {
   animation: shimmer 4s infinite ease-in-out;
   z-index: 0;
 }
+/* 📱 Mobile Responsive Styling */
+@media (max-width: 768px) {
+  .poster-img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .verse h1 {
+    font-size: 1.5em;
+  }
+
+  .verse p {
+    font-size: 1em;
+  }
+
+  .key-input,
+  .glyph-input {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  #hidden-verse,
+  #seyuna-verse,
+  #zora-verse,
+  #volume2-chamber {
+    padding: 0 1em;
+  }
+}
