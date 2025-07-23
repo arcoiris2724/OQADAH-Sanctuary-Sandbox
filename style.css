@@ -21,10 +21,11 @@ body {
 }
 
 .poster-img {
-  max-width: 90%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  position: relative;
+  z-index: 2; /* Raise above comet/stars */
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 /* 📝 Verse & Key Input */
