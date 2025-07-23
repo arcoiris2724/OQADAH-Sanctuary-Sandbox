@@ -98,3 +98,31 @@ p {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+body {
+  background: radial-gradient(ellipse at bottom, #0a0a1a 0%, #000 100%);
+  overflow-x: hidden;
+  color: #fff;
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: shimmer 4s infinite ease-in-out;
+}
+.star {
+  z-index: 0;
+}
+
+.film-gateway {
+  position: relative;
+  z-index: 1;
+}
