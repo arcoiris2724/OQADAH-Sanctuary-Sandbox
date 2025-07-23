@@ -15,16 +15,18 @@ body {
 .film-gateway {
   position: relative;
   z-index: 5;
+  text-align: center;
 }
 
-
 .poster-img {
-  position: relative;
-  z-index: 2; /* Raise above comet/stars */
   display: block;
   margin: 0 auto;
   max-width: 100%;
+  height: auto;
+  z-index: 5;
+  position: relative;
 }
+
 
 /* 📝 Verse & Key Input */
 .verse h1 {
