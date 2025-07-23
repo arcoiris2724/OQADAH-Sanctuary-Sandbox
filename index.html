@@ -25,6 +25,10 @@
     <input type="text" placeholder="Enter your key…" class="key-input" />
   </div>
 </div>
+<div id="hidden-verse" style="display:none; margin-top:40px;">
+  <h2>A WHISPER RETURNS</h2>
+  <p>You’ve entered the memory—Volume II stirs from stillness.</p>
+</div>
 
   <nav>
     <ul>
@@ -76,6 +80,18 @@
       clearInterval(fade);
     }
   }, 200);
+</script>
+<script>
+  const input = document.querySelector('.key-input');
+  const verse = document.getElementById('hidden-verse');
+
+  input.addEventListener('change', () => {
+    const key = input.value.trim().toLowerCase();
+    if (key === 'lasunan') {
+      verse.style.display = 'block';
+      verse.style.animation = 'fadeIn 2s ease-in';
+    }
+  });
 </script>
 
 </body>
