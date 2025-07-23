@@ -20,13 +20,12 @@ body {
 
 .poster-img {
   display: block;
-  margin: 0 auto;
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
   z-index: 5;
   position: relative;
 }
-
 
 /* 📝 Verse & Key Input */
 .verse h1 {
