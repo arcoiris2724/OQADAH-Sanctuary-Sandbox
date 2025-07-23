@@ -135,3 +135,7 @@ body {
   width: 3px;
   height: 3px;
 }
+body {
+  position: relative;
+  overflow-x: hidden;
+}
