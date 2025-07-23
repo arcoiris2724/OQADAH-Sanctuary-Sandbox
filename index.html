@@ -16,97 +16,70 @@
   <meta property="og:description" content="A living verse woven from motion, light, and universal memory." />
   <meta property="og:image" content="/meta/og-preview-oqadah.jpg" />
 </head>
+
 <body>
-<div class="film-gateway">
-  <img src="assets/qadah-poster.jpeg" class="poster-img" alt="QADAH Poster" />
-  <div class="verse">
-    <h1>REVISITING? WELCOME HOME.</h1>
-    <p>WATCH THE MEMORY STIRRING</p>
-    <input type="text" placeholder="Enter your key…" class="key-input" />
+  <!-- ✨ Floating Stars -->
+  <div class="star" style="top:20%; left:30%; animation-delay:0s;"></div>
+  <div class="star" style="top:40%; left:60%; animation-delay:1s;"></div>
+  <div class="star" style="top:10%; left:80%; animation-delay:2s;"></div>
+  <div class="star" style="top:30%; left:10%; animation-delay:3s;"></div>
+  <div class="star" style="top:50%; left:50%; animation-delay:4s;"></div>
+
+  <!-- 🌌 Gateway Poster & Verse -->
+  <div class="film-gateway">
+    <img src="assets/qadah-poster.jpeg" class="poster-img" alt="QADAH Poster" />
+    <div class="verse">
+      <h1>REVISITING? WELCOME HOME.</h1>
+      <p>WATCH THE MEMORY STIRRING</p>
+      <input type="text" placeholder="Enter your key…" class="key-input" />
+    </div>
   </div>
-</div>
-<div id="hidden-verse" style="display:none; margin-top:40px;">
-  <h2>A WHISPER RETURNS</h2>
-  <p>You’ve entered the memory—Volume II stirs from stillness.</p>
-</div>
 
-  <nav>
-    <ul>
-      <li><a href="#opening">Opening</a></li>
-      <li><a href="#sanctuary">Sanctuary</a></li>
-      <li><a href="#verse">Verse Weave</a></li>
-      <li><a href="#spiral">Spiral & Monad</a></li>
-      <li><a href="#seyuna">Seyuna</a></li>
-      <li><a href="#witness">Witness Gate</a></li>
-      <li><a href="#lineage">Lineage & Flame</a></li>
-      <li><a href="#hope">H.O.P.E.</a></li>
-      <li><a href="#contact">Contact & Echo</a></li>
-    </ul>
-  </nav>
+  <!-- 🗝️ Hidden Verse -->
+  <div id="hidden-verse" style="display:none; margin-top:40px;">
+    <h2>A WHISPER RETURNS</h2>
+    <p>You’ve entered the memory—Volume II stirs from stillness.</p>
+  </div>
 
-  <section id="opening">
-    <h1>OQADAH</h1>
-    <p>The breath opens. The Spiral stirs. A sanctuary awakens in harmonic memory.</p>
-  </section>
+  <!-- 🌠 SVG Comet Trail -->
+  <svg width="100%" height="100%" style="position:absolute; top:0; left:0; z-index:0; pointer-events:none;">
+    <path d="M 100,500 C 400,300 600,700 900,400" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none">
+      <animate attributeName="stroke-opacity" values="0.1;0.4;0.1" dur="6s" repeatCount="indefinite" />
+      <animate attributeName="stroke-width" values="1;3;1" dur="6s" repeatCount="indefinite" />
+    </path>
+  </svg>
 
-  <section id="sanctuary">
-    <h2>The Sanctuary Speaks</h2>
-    <p>This is the space where resonance listens. A place where glyphs, flame, and verse align.</p>
-  </section>
+  <!-- 🔊 Breath Loop Audio -->
+  <audio autoplay loop id="breath-audio">
+    <source src="audio/breath-loop.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-  <section id="verse">
-    <h2>Living Verse</h2>
-    <div id="verse-container"></div>
-    <button onclick="generateVerse()">Weave a New Thread</button>
-  </section>
+  <!-- 🎛️ Fade-In Script -->
+  <script>
+    const audio = document.getElementById('breath-audio');
+    audio.volume = 0;
+    const fade = setInterval(() => {
+      if (audio.volume < 0.5) {
+        audio.volume += 0.01;
+      } else {
+        clearInterval(fade);
+      }
+    }, 200);
+  </script>
 
-  <!-- We'll continue section-by-section below in follow-up turns -->
-<audio autoplay loop>
-  <source src="audio/breath-loop.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-<audio autoplay loop id="breath-audio">
-  <source src="audio/breath-loop.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+  <!-- 🔐 Verse Reveal Script -->
+  <script>
+    const input = document.querySelector('.key-input');
+    const verse = document.getElementById('hidden-verse');
 
-<script>
-  const audio = document.getElementById('breath-audio');
-  audio.volume = 0;
-  const fade = setInterval(() => {
-    if (audio.volume < 0.5) {
-      audio.volume += 0.01;
-    } else {
-      clearInterval(fade);
-    }
-  }, 200);
-</script>
-<script>
-  const input = document.querySelector('.key-input');
-  const verse = document.getElementById('hidden-verse');
-
-  input.addEventListener('change', () => {
-    const key = input.value.trim().toLowerCase();
-    if (key === 'lasunan') {
-      verse.style.display = 'block';
-      verse.style.animation = 'fadeIn 2s ease-in';
-    }
-  });
-</script>
-<svg width="100%" height="100%" style="position:absolute; top:0; left:0; z-index:0; pointer-events:none;">
-  <path d="M 100,500 C 400,300 600,700 900,400" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none">
-    <animate attributeName="stroke-opacity" values="0.1;0.4;0.1" dur="6s" repeatCount="indefinite" />
-    <animate attributeName="stroke-width" values="1;3;1" dur="6s" repeatCount="indefinite" />
-  </path>
-</svg>
-
+    input.addEventListener('change', () => {
+      const key = input.value.trim().toLowerCase();
+      if (key === 'lasunan') {
+        verse.style.display = 'block';
+        verse.style.animation = 'fadeIn 2s ease-in';
+      }
+    });
+  </script>
 </body>
-<!-- ✨ Floating Stars -->
-<div class="star" style="top:20%; left:30%; animation-delay:0s;"></div>
-<div class="star" style="top:40%; left:60%; animation-delay:1s;"></div>
-<div class="star" style="top:10%; left:80%; animation-delay:2s;"></div>
-<div class="star" style="top:30%; left:10%; animation-delay:3s;"></div>
-<div class="star" style="top:50%; left:50%; animation-delay:4s;"></div>
-
 </html>
->>>>>>> 98f19835f4248b60b5bf202cd61d19757c18d919
