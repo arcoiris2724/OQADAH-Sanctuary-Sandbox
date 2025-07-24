@@ -459,3 +459,59 @@ form button:hover {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+/* 🧬 Verse Trail Styling */
+.verse-trail {
+  position: absolute;
+  width: 140px;
+  text-align: center;
+  margin-top: -20px;
+  font-style: italic;
+  font-size: 1em;
+  color: #cccccc;
+  animation: fadeIn 2s ease forwards;
+}
+
+.verse-trail div {
+  margin-bottom: 10px;
+  opacity: 0.2;
+  animation: cometFade 9s ease-in-out forwards;
+  position: relative;
+}
+
+@keyframes cometFade {
+  0% { transform: translateY(0) scale(1); opacity: 0.2; }
+  50% { transform: translateY(-10px) scale(1.05); opacity: 0.7; }
+  100% { transform: translateY(-20px) scale(1); opacity: 0.4; }
+}
+
+/* 🔁 Contributor Sigil Styling */
+.sigil-tag {
+  font-size: 0.7em;
+  color: #ffecc0;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: monospace;
+  opacity: 0.6;
+}
+
+/* 🔮 Convergence Glyph Styling */
+#convergence-glyph {
+  text-align: center;
+  padding: 1em;
+  background: radial-gradient(circle, #302020 0%, #000 100%);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255,200,150,0.1);
+  animation: fadeIn 2s ease-in-out;
+}
+
+#convergence-glyph svg path {
+  transform-origin: center;
+  animation: glyphPulse 8s ease-in-out infinite;
+}
+
+@keyframes glyphPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50%      { transform: scale(1.04); opacity: 1; }
+}
