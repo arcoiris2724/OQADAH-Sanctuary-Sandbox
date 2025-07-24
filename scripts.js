@@ -82,6 +82,7 @@ reflectionButton?.addEventListener('click', () => {
       volume4Chamber.style.display = "block";
       orbitMap.style.display = "block";
     }
+updateConstellationFromLineage();
 
     // 🧶 Generate trail + check convergence
     createTrail(tone, text);
@@ -174,6 +175,22 @@ returnGlyphContainer.addEventListener('click', (e) => {
     speakWhisper(whisper);
   }
 });
+function spawnEchoBloom(phrase) {
+  const chamber = document.createElement('div');
+  chamber.className = 'ambient-verse';
+  chamber.textContent = `Echo Bloom: "${phrase}" returns again. Memory folds inward.`;
+  stitchedVerse.appendChild(chamber);
+}
+
+// In analyzeStitchedVerse:
+const seen = {};
+branches.forEach(b => {
+  const text = b.textContent.trim();
+  seen[text] = (seen[text] || 0) + 1;
+  if (seen[text] === 3) {
+    spawnEchoBloom(text);
+  }
+});
 
 // Optional Echo Verse Triggers
 function spawnEchoVerse(key) {
@@ -242,4 +259,62 @@ function spawnNestedGlyph(key) {
   nested.setAttribute('data-message', `Nested glyph reflects ${key}'s vow.`);
   nested.title = `${key.toUpperCase()}-LOOP`;
   returnGlyphContainer.appendChild(nested);
+}
+// 🌌 Volume VIII Chamber
+const volume8Chamber = document.getElementById('volume8-chamber');
+const constellationSvg = document.getElementById('glyph-constellation');
+
+// ✴ Constellation Render
+function renderConstellation(sigils) {
+  if (volume8Chamber.style.display !== 'block') {
+    volume8Chamber.style.display = 'block';
+  }
+
+  constellationSvg.innerHTML = ''; // Clear previous
+
+  const nodePositions = {};
+  const centerX = 300;
+  const centerY = 200;
+  const radius = 140;
+  const angleStep = (2 * Math.PI) / sigils.length;
+
+  sigils.forEach((sigil, index) => {
+    const angle = index * angleStep;
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
+    nodePositions[sigil] = { x, y };
+
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.setAttribute('r', '8');
+    circle.setAttribute('class', 'glyph-node');
+    circle.setAttribute('title', sigil);
+    circle.addEventListener('click', () => {
+      alert(`🧬 ${sigil} constellation thread`);
+      // Optional: trace verse trail or echo
+    });
+
+    constellationSvg.appendChild(circle);
+  });
+
+  // 🔁 Connect lines
+  for (let i = 0; i < sigils.length - 1; i++) {
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', nodePositions[sigils[i]].x);
+    line.setAttribute('y1', nodePositions[sigils[i]].y);
+    line.setAttribute('x2', nodePositions[sigils[i + 1]].x);
+    line.setAttribute('y2', nodePositions[sigils[i + 1]].y);
+    line.setAttribute('class', 'glyph-line');
+    constellationSvg.appendChild(line);
+  }
+}
+
+// 🔁 Gather Sigils from Lineage
+function updateConstellationFromLineage() {
+  const threads = document.querySelectorAll('.lineage-thread');
+  const sigils = [...new Set(Array.from(threads).map(t => t.textContent.split('→')[0].trim()))];
+  if (sigils.length >= 3) {
+    renderConstellation(sigils);
+  }
 }
