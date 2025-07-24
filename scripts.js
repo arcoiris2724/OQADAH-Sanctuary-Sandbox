@@ -164,15 +164,17 @@ function analyzeStitchedVerse() {
   }
 }
 analyzeStitchedVerse();
-// 🔁 Glyph Whisper on Click
+// 🔁 Glyph Ripple + Whisper
 returnGlyphContainer.addEventListener('click', (e) => {
   const target = e.target;
   if (target.classList.contains('glyph-fragment')) {
     const whisper = target.getAttribute('data-message');
-    alert(`🌀 Whisper: "${whisper}"`);
-    // Optional: console.log, animate, or voice playback
+    target.classList.add('clicked');
+    setTimeout(() => target.classList.remove('clicked'), 1200);
+    speakWhisper(whisper);
   }
 });
+
 // Optional Echo Verse Triggers
 function spawnEchoVerse(key) {
   const chamber = document.getElementById(`${key}-verse`);
