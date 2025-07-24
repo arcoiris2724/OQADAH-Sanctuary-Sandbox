@@ -90,3 +90,24 @@ reflectionButton?.addEventListener('click', () => {
     reflectionInput.value = "";
   }
 });
+// 🔥 Volume V — Flame Tree Branch Logic
+const volume5Chamber = document.getElementById('volume5-chamber');
+const branchContainer = document.getElementById('branch-container');
+
+function createBranch(tone, text) {
+  const fragment = document.createElement('div');
+  fragment.className = `branch-fragment ${tone}`;
+  fragment.textContent = `"${text}"`;
+
+  const sigil = document.createElement('div');
+  sigil.className = 'sigil-tag';
+  sigil.textContent = generateSigil();
+
+  fragment.appendChild(sigil);
+  branchContainer.appendChild(fragment);
+
+  // 🌿 Reveal Flame Tree if hidden
+  if (volume5Chamber.style.display !== 'block') {
+    volume5Chamber.style.display = 'block';
+  }
+}
