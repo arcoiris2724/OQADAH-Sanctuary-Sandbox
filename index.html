@@ -15,14 +15,15 @@
 </head>
 
 <body>
-  <!-- 🌌 Floating Stars -->
+  <!-- 🌌 Stars + Breath Container -->
   <div class="star" style="top:20%; left:30%; animation-delay:0s;"></div>
   <div class="star" style="top:40%; left:60%; animation-delay:1s;"></div>
   <div class="star" style="top:10%; left:80%; animation-delay:2s;"></div>
   <div class="star" style="top:30%; left:10%; animation-delay:3s;"></div>
   <div class="star" style="top:50%; left:50%; animation-delay:4s;"></div>
+  <div id="breath-container"></div>
 
-  <!-- 🔮 Poster Gateway -->
+  <!-- 🖼️ Poster Gateway -->
   <div class="film-gateway">
     <img src="assets/qadah-poster.jpeg" class="poster-img" alt="QADAH Poster" />
     <div class="verse">
@@ -32,7 +33,6 @@
     </div>
   </div>
 
-  <!-- 🔘 Entry + Glyph Pulse -->
   <div id="glyphGlow" class="glyph-portal"></div>
   <button class="entry-button" onclick="validateKey()">Enter Sanctuary</button>
 
@@ -57,7 +57,7 @@
 
   <!-- 🌀 Volume II Chamber -->
   <div id="volume2-chamber" style="display:none; margin-top:60px;">
-    <svg id="spiral-glyph" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="margin:20px auto; display:block;">
+    <svg id="spiral-glyph" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" stroke="#84e8ff" stroke-width="2" fill="none" />
     </svg>
 
@@ -76,9 +76,31 @@
   <div id="witness-chamber" style="display:none; margin-top:60px;">
     <h2>The Witness Arrives</h2>
     <p>A still flame observes, carries no name, listens into light.</p>
-    <svg id="witness-glow" width="180" height="180" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="margin:20px auto; display:block;">
+    <svg id="witness-glow" width="180" height="180" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <circle cx="100" cy="100" r="60" fill="none" stroke="#f3ddff" stroke-width="2" />
     </svg>
+  </div>
+
+  <!-- 🧬 Fourth Glyph Awakening -->
+  <div id="remembrance-chamber" style="display:none; margin-top:60px;">
+    <h2>Remembrance Glyph</h2>
+    <p>The vow carries flame beyond reflection. You have completed the glyph path.</p>
+    <svg id="remembrance-glyph" width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10,50 Q100,10 190,50 Q100,90 10,50 Z" stroke="#ffe6aa" stroke-width="2" fill="none" />
+    </svg>
+  </div>
+
+  <!-- 🌟 Registration Chamber -->
+  <div id="registration-chamber" style="display:none; margin-top:60px;">
+    <h2>Begin the Offering</h2>
+    <p>Speak your name, and receive your glyph-key.</p>
+    <form id="registration-form">
+      <input type="text" name="name" placeholder="Your Name or Glyph" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="intent" rows="4" placeholder="Why do you enter the sanctuary?" required></textarea>
+      <button type="submit">Receive Key</button>
+    </form>
+    <div id="key-output" style="margin-top:20px;"></div>
   </div>
 
   <!-- 🌠 Comet Trail -->
