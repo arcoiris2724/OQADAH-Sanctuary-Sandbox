@@ -704,3 +704,14 @@ function createBranch(tone, text) {
   font-size: 0.9em;
   border-left: 2px solid #ffc;
 }
+/* 🌀 Ripple After Click */
+.glyph-fragment.clicked {
+  box-shadow: 0 0 20px #fff;
+  animation: rippleGlow 1.2s ease-out;
+}
+
+@keyframes rippleGlow {
+  0% { box-shadow: 0 0 4px #fff; transform: scale(1); }
+  50% { box-shadow: 0 0 24px #ffd; transform: scale(1.1); }
+  100% { box-shadow: 0 0 10px #ffa; transform: scale(1); }
+}
