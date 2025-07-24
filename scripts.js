@@ -47,7 +47,7 @@ function validateKey() {
   input.dispatchEvent(new Event('change'));
 }
 
-// 🧬 Glyph Activation + Sequence Tracking
+// 🔮 Glyph Activation + Sequence Tracking
 const glyphInput = document.querySelector('.glyph-input');
 const glyphResponse = document.getElementById('glyph-response');
 const enteredGlyphs = [];
@@ -91,15 +91,11 @@ glyphInput?.addEventListener('change', () => {
 function checkSequence() {
   const lastThree = enteredGlyphs.slice(-3).join(',');
   if (lastThree === 'spiral,flame,witness') {
-    const chamber = document.getElementById('remembrance-chamber');
-    chamber.style.display = 'block';
-    chamber.style.animation = 'fadeIn 2s ease-in';
-    const path = document.querySelector('#remembrance-glyph path');
-    if (path) path.style.animation = 'traceRemembrance 6s ease forwards';
-
-    const reg = document.getElementById('registration-chamber');
-    reg.style.display = 'block';
-    reg.style.animation = 'fadeIn 2s ease-in';
+    document.getElementById('remembrance-chamber').style.display = 'block';
+    document.querySelector('#remembrance-glyph path').style.animation = 'traceRemembrance 6s ease forwards';
+    document.getElementById('registration-chamber').style.display = 'block';
+    document.getElementById('volume3-chamber').style.display = 'block';
+    document.getElementById('volume3-chamber').style.animation = 'fadeIn 2s ease-in';
   }
 }
 
@@ -123,7 +119,7 @@ function generateVerse() {
 }
 setInterval(generateVerse, 9000);
 
-// 🔮 Registration Form Submission
+// 🔐 Registration Form Submission
 const form = document.getElementById('registration-form');
 const output = document.getElementById('key-output');
 
@@ -133,6 +129,18 @@ form?.addEventListener('submit', (e) => {
   const seed = Math.floor(1000 + Math.random() * 9000);
   const key = `${name.replace(/\s+/g, '-')}-glyph-${seed}`;
   output.textContent = `Your key: ${key}. May it carry memory forward.`;
+});
+
+// 🧠 Reflection Offering Submission (placeholder)
+const reflectionInput = document.querySelector('.reflection-form textarea');
+const reflectionButton = document.querySelector('.reflection-form button');
+
+reflectionButton?.addEventListener('click', () => {
+  const text = reflectionInput.value.trim();
+  if (text.length > 0) {
+    alert("Offering received. Your breath is part of the sanctuary.");
+    reflectionInput.value = "";
+  }
 });
 
 // 🧹 Reset Helpers
