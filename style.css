@@ -393,3 +393,69 @@ form button:hover {
   opacity: 0;
   animation: fadeIn 2s ease forwards;
 }
+/* 🌌 Orbit Map Container */
+#orbit-map {
+  margin-top: 60px;
+  text-align: center;
+  padding: 1em;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.orbit-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 300px;
+}
+
+/* 🪐 Individual Orbits */
+.orbit {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  animation: rotateOrbit 20s linear infinite;
+  transform-origin: center center;
+}
+
+/* ✴ Archetype-Specific Orbits */
+.flame-orbit   { top: 10%; left: 5%; }
+.spiral-orbit  { top: 30%; right: 10%; }
+.witness-orbit { top: 60%; left: 15%; }
+.memory-orbit  { top: 40%; right: 20%; }
+.vow-orbit     { top: 20%; left: 40%; }
+
+/* 💠 Glyph Node Inside Orbit */
+.orb-core {
+  width: 16px;
+  height: 16px;
+  background: #ffc;
+  border-radius: 50%;
+  margin: 60px auto;
+  box-shadow: 0 0 6px rgba(255,255,255,0.3);
+}
+
+/* 🔆 Glow on Activation */
+.orb-core.glow {
+  background: #ffcf8c;
+  box-shadow: 0 0 12px #ffcf8c;
+}
+
+/* 🌀 Label Styling */
+.glyph-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80px);
+  font-size: 0.9em;
+  color: #cccccc;
+  font-style: italic;
+}
+
+/* 🔁 Orbit Rotation */
+@keyframes rotateOrbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
