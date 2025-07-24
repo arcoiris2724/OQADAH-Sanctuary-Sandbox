@@ -13,6 +13,17 @@ else if (glyph === 'flame') {
   const flamePath = flame.querySelector('path');
   flamePath.style.animation = 'traceFlame 6s ease forwards';
 }
+else if (glyph === 'witness') {
+  glyphResponse.innerHTML = "<p>The flame does not speak. It listens.</p>";
+  const witness = document.getElementById('witness-chamber');
+  witness.style.display = 'block';
+  witness.style.animation = 'fadeIn 2s ease-in';
+
+  const glow = document.getElementById('witness-glow')?.querySelector('circle');
+  if (glow) {
+    glow.style.animation = 'witnessPulse 6s ease-out forwards';
+  }
+}
 
 const verseContainer = document.getElementById("verse-container");
 
