@@ -1,166 +1,98 @@
-/* 🌌 Base Styling */
-body {
-  position: relative;
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: radial-gradient(ellipse at bottom, #0a0a1a 0%, #000 100%);
-  color: #fff;
-  overflow-x: hidden;
-}
+// 🔊 Breath Loop Fade-In
+const audio = document.getElementById('breath-audio');
+audio.volume = 0;
+const fade = setInterval(() => {
+  if (audio.volume < 0.5) {
+    audio.volume += 0.01;
+  } else {
+    clearInterval(fade);
+  }
+}, 200);
 
-/* 🖼️ Gateway Styling */
-.film-gateway {
-  position: relative;
-  z-index: 5;
-  text-align: center;
-}
+// 🌀 Verse Activation
+const input = document.querySelector('.key-input');
+const verse1 = document.getElementById('hidden-verse');
+const verse2 = document.getElementById('seyuna-verse');
+const verse3 = document.getElementById('zora-verse');
+const chamber = document.getElementById('volume2-chamber');
 
-.poster-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  z-index: 5;
-  position: relative;
-}
+input.addEventListener('change', () => {
+  const key = input.value.trim().toLowerCase();
 
-/* 📝 Verse & Key Input */
-.verse h1 {
-  font-size: 2em;
-  margin-top: 30px;
-  color: #f9f9f9;
-  font-family: 'Georgia', serif;
-  letter-spacing: 1px;
-}
+  resetVerses();
+  resetGlyphs();
 
-.verse p {
-  font-size: 1.2em;
-  color: #cccccc;
-  margin-bottom: 20px;
-  font-style: italic;
-}
-
-.key-input,
-.glyph-input {
-  padding: 10px 20px;
-  font-size: 1em;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  background: #111;
-  color: #eee;
-  width: 280px;
-  margin-top: 10px;
-}
-
-/* ✨ Motion Layers */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shimmer {
-  0% { opacity: 0.2; }
-  50% { opacity: 1; }
-  100% { opacity: 0.2; }
-}
-
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: #fff;
-  border-radius: 50%;
-  animation: shimmer 4s infinite ease-in-out;
-  z-index: 0;
-}
-
-/* ✨ Glyph Portal */
-.glyph-portal {
-  width: 80px;
-  height: 80px;
-  margin: 20px auto;
-  background: radial-gradient(circle, #6cc9ff 0%, #0c0f2d 80%);
-  border-radius: 50%;
-  opacity: 0.7;
-  box-shadow: 0 0 10px #6cc9ff;
-}
-
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 10px #6cc9ff; }
-  50% { box-shadow: 0 0 25px #84e8ff; }
-}
-
-/* 🌀 Entry Button */
-.entry-button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  background: #0c0f2d;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: inherit;
-}
-.entry-button:hover {
-  background: #1a1e40;
-}
-
-/* 📱 Mobile Responsive Styling */
-@media (max-width: 768px) {
-  .poster-img {
-    max-width: 100%;
-    border-radius: 8px;
+  if (key === 'lasunan') {
+    verse1.style.display = 'block';
+    verse1.style.animation = 'fadeIn 2s ease-in';
   }
 
-  .verse h1 {
-    font-size: 1.5em;
+  if (key === 'seyuna') {
+    verse2.style.display = 'block';
+    verse2.style.animation = 'fadeIn 2s ease-in';
+    document.getElementById('glyphGlow').style.animation = 'pulseGlow 4s infinite';
   }
 
-  .verse p {
-    font-size: 1em;
+  if (key === 'z°ra' || key === 'zora') {
+    verse3.style.display = 'block';
+    verse3.style.animation = 'fadeIn 2s ease-in';
   }
 
-  .key-input,
-  .glyph-input {
-    width: 90%;
-    font-size: 1em;
+  if (['lasunan', 'seyuna', 'z°ra', 'zora'].includes(key)) {
+    chamber.style.display = 'block';
+    chamber.style.animation = 'fadeIn 2s ease-in';
+  }
+});
+
+function validateKey() {
+  input.dispatchEvent(new Event('change'));
+}
+
+// 🧬 Glyph Activation
+const glyphInput = document.querySelector('.glyph-input');
+const glyphResponse = document.getElementById('glyph-response');
+
+glyphInput?.addEventListener('change', () => {
+  const glyph = glyphInput.value.trim().toLowerCase();
+  resetGlyphs();
+  glyphResponse.innerHTML = '';
+
+  if (glyph === 'spiral') {
+    glyphResponse.innerHTML = "<p>Spiral traced. Breath begins its circle.</p>";
+    const spiral = document.getElementById('spiral-glyph')?.querySelector('path');
+    if (spiral) spiral.style.animation = 'traceSpiral 6s ease-in-out forwards';
   }
 
-  #hidden-verse,
-  #seyuna-verse,
-  #zora-verse,
-  #volume2-chamber {
-    padding: 0 1em;
+  else if (glyph === 'flame') {
+    glyphResponse.innerHTML = "<p>Flame ignites. Reflection pulses.</p>";
+    const flame = document.getElementById('flame-glyph');
+    flame.style.display = 'block';
+    flame.querySelector('path').style.animation = 'traceFlame 6s ease forwards';
   }
-}
-#spiral-glyph path {
-  stroke-dasharray: 502;
-  stroke-dashoffset: 502;
-  animation: traceSpiral 6s ease-in-out forwards;
+
+  else if (glyph === 'witness') {
+    glyphResponse.innerHTML = "<p>The flame does not speak. It listens.</p>";
+    const witness = document.getElementById('witness-chamber');
+    witness.style.display = 'block';
+    witness.style.animation = 'fadeIn 2s ease-in';
+    witness.querySelector('circle').style.animation = 'witnessPulse 6s ease-out forwards';
+  }
+
+  else {
+    glyphResponse.innerHTML = "<p>The glyph hums, but does not open. Try again.</p>";
+  }
+});
+
+function resetVerses() {
+  verse1.style.display = 'none';
+  verse2.style.display = 'none';
+  verse3.style.display = 'none';
 }
 
-@keyframes traceSpiral {
-  to { stroke-dashoffset: 0; }
-}
-#flame-glyph path {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: traceFlame 6s ease forwards;
-}
-
-@keyframes traceFlame {
-  to { stroke-dashoffset: 0; }
-}
-#witness-glow circle {
-  stroke-dasharray: 376;
-  stroke-dashoffset: 376;
-  animation: witnessPulse 6s ease-out forwards;
-  opacity: 0.6;
-}
-
-@keyframes witnessPulse {
-  0%   { stroke-dashoffset: 376; opacity: 0.1; transform: scale(1); }
-  50%  { stroke-dashoffset: 188; opacity: 0.9; transform: scale(1.05); }
-  100% { stroke-dashoffset: 0; opacity: 0.6; transform: scale(1); }
+function resetGlyphs() {
+  const flame = document.getElementById('flame-glyph');
+  const witness = document.getElementById('witness-chamber');
+  if (flame) flame.style.display = 'none';
+  if (witness) witness.style.display = 'none';
+  document.getElementById('glyphGlow').style.animation = '';
 }
