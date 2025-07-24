@@ -515,3 +515,70 @@ form button:hover {
   0%, 100% { transform: scale(1); opacity: 0.6; }
   50%      { transform: scale(1.04); opacity: 1; }
 }
+/* 🔥 Volume V: Flame Tree Chamber */
+#volume5-chamber {
+  padding: 2em;
+  background: radial-gradient(circle, #1a1e2d 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 14px rgba(255, 200, 150, 0.08);
+  animation: fadeIn 2s ease-in-out;
+}
+
+#flame-root svg path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: traceFlameTree 6s ease forwards;
+}
+
+@keyframes traceFlameTree {
+  to { stroke-dashoffset: 0; }
+}
+
+.tree-whisper {
+  font-style: italic;
+  font-size: 1.1em;
+  color: #ffd4bb;
+  margin-top: 10px;
+}
+
+#branch-container {
+  margin-top: 30px;
+  padding: 1em;
+}
+
+/* 🌿 Branch Styling */
+.branch-fragment {
+  font-style: italic;
+  font-size: 1.05em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: branchGrow 5s ease forwards;
+  border-left: 2px solid #ffd8b0;
+  padding-left: 10px;
+  position: relative;
+}
+
+/* 🌀 Tone-Specific Branch Colors */
+.branch-fragment.flame   { border-color: #ffa07a; color: #ffbca0; }
+.branch-fragment.spiral  { border-color: #7adfff; color: #aeeeff; }
+.branch-fragment.witness { border-color: #cfaaff; color: #e3d6ff; }
+.branch-fragment.memory  { border-color: #f0e6bb; color: #fffccc; }
+.branch-fragment.vow     { border-color: #baffd3; color: #ddffe6; }
+
+@keyframes branchGrow {
+  0%   { transform: translateY(20px); opacity: 0; }
+  60%  { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-5px); opacity: 0.8; }
+}
+
+/* 🔁 Sigil on Branch */
+.branch-fragment .sigil-tag {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 0.7em;
+  font-family: monospace;
+  color: #ffe0bb;
+  opacity: 0.7;
+}
