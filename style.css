@@ -772,3 +772,57 @@ function createBranch(tone, text) {
   stroke-width: 1;
   opacity: 0.3;
 }
+/* 🔮 Archetype Sigil Portal */
+#volume9-chamber {
+  padding: 2em;
+  background: radial-gradient(circle, #1a0a1a 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+  box-shadow: 0 0 14px rgba(255, 200, 255, 0.1);
+}
+
+#archetype-sigil-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.archetype-sigil {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #ffaaff 0%, #1a1a2a 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 16px #ffaaff;
+  animation: archetypePulse 4s ease-in-out infinite;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+.archetype-sigil:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 22px #ffccff;
+}
+
+.archetype-sigil::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8em;
+  color: #ccc;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.archetype-sigil:hover::after {
+  opacity: 1;
+}
+
+@keyframes archetypePulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
