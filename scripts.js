@@ -149,3 +149,12 @@ function analyzeStitchedVerse() {
   }
 }
 analyzeStitchedVerse();
+// 🔁 Glyph Whisper on Click
+returnGlyphContainer.addEventListener('click', (e) => {
+  const target = e.target;
+  if (target.classList.contains('glyph-fragment')) {
+    const whisper = target.getAttribute('data-message');
+    alert(`🌀 Whisper: "${whisper}"`);
+    // Optional: console.log, animate, or voice playback
+  }
+});
