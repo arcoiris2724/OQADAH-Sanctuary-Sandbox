@@ -201,3 +201,45 @@ function speakWhisper(text) {
   whisper.voice = speechSynthesis.getVoices().find(v => v.lang.includes('en') && v.name.toLowerCase().includes('whisper'));
   speechSynthesis.speak(whisper);
 }
+// 🌀 Glyph Ripple + Whisper
+returnGlyphContainer.addEventListener('click', (e) => {
+  const target = e.target;
+  if (target.classList.contains('glyph-fragment')) {
+    const whisper = target.getAttribute('data-message');
+    target.classList.add('clicked');
+    setTimeout(() => target.classList.remove('clicked'), 1200);
+    speakWhisper(whisper);
+
+    // 🔁 Nested Glyph Loop (spawn secondary glyph on triple click)
+    const clicks = parseInt(target.getAttribute('data-clicks') || '0') + 1;
+    target.setAttribute('data-clicks', clicks);
+    if (clicks >= 3) {
+      spawnNestedGlyph(target.title.toLowerCase());
+      target.setAttribute('data-clicks', '0');
+    }
+  }
+});
+
+// 🔮 Whisper via Speech Synthesis
+function speakWhisper(text) {
+  const whisper = new SpeechSynthesisUtterance(text);
+  whisper.pitch = 0.8;
+  whisper.rate = 0.9;
+  whisper.volume = 0.9;
+  speechSynthesis.speak(whisper);
+}
+
+// 📜 Echo Verse Trigger
+function spawnEchoVerse(key) {
+  const chamber = document.getElementById(`${key}-verse`);
+  if (chamber) chamber.style.display = 'block';
+}
+
+// 🧬 Spawn Nested Glyph Loop
+function spawnNestedGlyph(key) {
+  const nested = document.createElement('div');
+  nested.className = 'glyph-fragment';
+  nested.setAttribute('data-message', `Nested glyph reflects ${key}'s vow.`);
+  nested.title = `${key.toUpperCase()}-LOOP`;
+  returnGlyphContainer.appendChild(nested);
+}
