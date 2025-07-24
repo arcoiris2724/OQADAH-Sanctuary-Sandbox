@@ -735,3 +735,40 @@ function createBranch(tone, text) {
   50% { box-shadow: 0 0 24px #ffd; transform: scale(1.1); }
   100% { box-shadow: 0 0 10px #ffa; transform: scale(1); }
 }
+/* 🌌 Volume VIII Styling */
+#volume8-chamber {
+  padding: 2em;
+  background: radial-gradient(circle, #0a0a1a 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(255,255,255,0.08);
+  animation: fadeIn 2s ease-in-out;
+}
+
+#glyph-constellation {
+  display: block;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.06);
+}
+
+/* ✴ Glyph Nodes */
+.glyph-node {
+  fill: #ffeccc;
+  stroke: #ffcfa0;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.glyph-node:hover {
+  transform: scale(1.2);
+  fill: #fffbe0;
+}
+
+/* 🧬 Constellation Lines */
+.glyph-line {
+  stroke: #cccccc;
+  stroke-width: 1;
+  opacity: 0.3;
+}
