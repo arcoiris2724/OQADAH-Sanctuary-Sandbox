@@ -9,7 +9,7 @@ const fade = setInterval(() => {
   }
 }, 200);
 
-// 🌀 Verse Activation Logic
+// 🌀 Verse Activation
 const input = document.querySelector('.key-input');
 const verse1 = document.getElementById('hidden-verse');
 const verse2 = document.getElementById('seyuna-verse');
@@ -18,7 +18,6 @@ const chamber = document.getElementById('volume2-chamber');
 
 input.addEventListener('change', () => {
   const key = input.value.trim().toLowerCase();
-
   resetVerses();
   resetGlyphs();
 
@@ -48,7 +47,7 @@ function validateKey() {
   input.dispatchEvent(new Event('change'));
 }
 
-// 🧬 Glyph Input + Response Logic
+// 🔮 Glyph Activation
 const glyphInput = document.querySelector('.glyph-input');
 const glyphResponse = document.getElementById('glyph-response');
 
@@ -85,7 +84,7 @@ glyphInput?.addEventListener('change', () => {
   }
 });
 
-// 🔁 Verse Loop Animation
+// 🫧 Ambient Verse Loop
 const verseContainer = document.getElementById("verse-container");
 const verses = [
   "The breath remembers what thought forgets.",
