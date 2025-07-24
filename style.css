@@ -143,3 +143,12 @@ body {
 @keyframes traceSpiral {
   to { stroke-dashoffset: 0; }
 }
+#flame-glyph path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: traceFlame 6s ease forwards;
+}
+
+@keyframes traceFlame {
+  to { stroke-dashoffset: 0; }
+}
