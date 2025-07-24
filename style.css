@@ -106,8 +106,8 @@ body {
 
 /* 🧿 Witness Glow Animation */
 @keyframes witnessPulse {
-  0% { stroke-dashoffset: 376; opacity: 0.1; transform: scale(1); }
-  50% { stroke-dashoffset: 188; opacity: 0.9; transform: scale(1.05); }
+  0%   { stroke-dashoffset: 376; opacity: 0.1; transform: scale(1); }
+  50%  { stroke-dashoffset: 188; opacity: 0.9; transform: scale(1.05); }
   100% { stroke-dashoffset: 0; opacity: 0.6; transform: scale(1); }
 }
 #witness-glow circle {
@@ -119,8 +119,8 @@ body {
 
 /* 🌟 Star Shimmer */
 @keyframes shimmer {
-  0% { opacity: 0.2; }
-  50% { opacity: 1; }
+  0%   { opacity: 0.2; }
+  50%  { opacity: 1; }
   100% { opacity: 0.2; }
 }
 .star {
@@ -136,7 +136,18 @@ body {
 /* 🌬 Fade In Utility */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌬 Ambient Verse Styling */
+.ambient-verse {
+  text-align: center;
+  font-size: 1.2em;
+  color: #cccccc;
+  font-style: italic;
+  margin-top: 30px;
+  opacity: 0.8;
+  animation: fadeIn 2s ease-in-out;
 }
 
 /* 📱 Responsive Styling */
