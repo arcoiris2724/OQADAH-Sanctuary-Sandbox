@@ -53,6 +53,7 @@ function checkConvergence(tone) {
     convergenceGlyph.style.display = 'block';
   }
 }
+triggerArchetypesFromClusters();
 
 // 🔁 Extended Reflection Button Logic
 reflectionButton?.addEventListener('click', () => {
