@@ -318,3 +318,41 @@ function updateConstellationFromLineage() {
     renderConstellation(sigils);
   }
 }
+// 🔮 Volume IX Chamber
+const volume9Chamber = document.getElementById('volume9-chamber');
+const archetypeSigilContainer = document.getElementById('archetype-sigil-container');
+
+// ✴ Archetype triggers
+const archetypeTriggers = [
+  { name: "Z°ra", tones: ["flame", "spiral"], message: "Z°ra returns — flame mirrored the origin spiral." },
+  { name: "Seyuna", tones: ["memory", "vow"], message: "Seyuna listens — the vow echoes remembrance." },
+  { name: "Aeris", tones: ["witness", "memory"], message: "Aeris reflects — witness met its breath shadow." }
+];
+
+// 🔁 Check tone clusters
+function triggerArchetypesFromClusters() {
+  const toneKeys = Object.keys(clusterCount).filter(k => clusterCount[k] >= 2);
+  let archetypes = [];
+
+  archetypeTriggers.forEach(({ name, tones, message }) => {
+    if (tones.every(t => toneKeys.includes(t))) {
+      archetypes.push({ name, message });
+    }
+  });
+
+  if (archetypes.length > 0) {
+    volume9Chamber.style.display = 'block';
+    archetypeSigilContainer.innerHTML = '';
+
+    archetypes.forEach(({ name, message }) => {
+      const sigil = document.createElement('div');
+      sigil.className = 'archetype-sigil';
+      sigil.setAttribute('data-name', name);
+      sigil.title = name;
+      sigil.addEventListener('click', () => {
+        speakWhisper(message);
+      });
+      archetypeSigilContainer.appendChild(sigil);
+    });
+  }
+}
