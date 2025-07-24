@@ -229,3 +229,53 @@ form button:hover {
     padding: 0 1em;
   }
 }
+/* 🛡️ Volume III Chamber */
+#volume3-chamber {
+  padding: 2em;
+  background: linear-gradient(to bottom, #0c0f2d 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* ✴ Initiation Verse */
+.initiation-verse {
+  font-style: italic;
+  font-size: 1.2em;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+/* 💠 Reflection Form */
+.reflection-form h3 {
+  font-size: 1.1em;
+  color: #fdfdfd;
+  margin-bottom: 10px;
+}
+
+.reflection-form textarea {
+  padding: 12px;
+  width: 80%;
+  max-width: 500px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: #111;
+  color: #eee;
+  font-family: inherit;
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.reflection-form button {
+  padding: 10px 24px;
+  background: #1a1e40;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.reflection-form button:hover {
+  background: #2e345c;
+}
