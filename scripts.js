@@ -6,6 +6,13 @@ if (glyph === 'spiral') {
     spiral.style.animation = 'traceSpiral 6s ease-in-out forwards';
   }
 }
+else if (glyph === 'flame') {
+  glyphResponse.innerHTML = "<p>Flame ignites. Reflection pulses.</p>";
+  const flame = document.getElementById('flame-glyph');
+  flame.style.display = 'block';
+  const flamePath = flame.querySelector('path');
+  flamePath.style.animation = 'traceFlame 6s ease forwards';
+}
 
 const verseContainer = document.getElementById("verse-container");
 
