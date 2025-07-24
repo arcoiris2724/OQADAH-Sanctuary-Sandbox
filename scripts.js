@@ -158,3 +158,20 @@ returnGlyphContainer.addEventListener('click', (e) => {
     // Optional: console.log, animate, or voice playback
   }
 });
+// Optional Echo Verse Triggers
+function spawnEchoVerse(key) {
+  const chamber = document.getElementById(`${key}-verse`);
+  if (chamber) chamber.style.display = 'block';
+}
+
+// Inside matches.forEach:
+matches.forEach(({ key, message }) => {
+  const glyph = document.createElement('div');
+  glyph.className = 'glyph-fragment';
+  glyph.setAttribute('data-message', message);
+  glyph.title = key.toUpperCase();
+  returnGlyphContainer.appendChild(glyph);
+
+  // 🧬 Trigger hidden verse
+  spawnEchoVerse(key);
+});
