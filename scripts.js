@@ -111,3 +111,40 @@ function createBranch(tone, text) {
     volume5Chamber.style.display = 'block';
   }
 }
+// 🔮 Volume VI Chamber
+const glyphReturnChamber = document.getElementById('glyph-return-chamber');
+const returnGlyphContainer = document.getElementById('return-glyph-container');
+
+// 🧿 Pattern Dictionary
+const glyphPatterns = {
+  flame: { pattern: /flame dissolves|ember|gold-edged/, message: "Flame is not consumed — it remembers." },
+  spiral: { pattern: /spiral hums|loop|motion/, message: "The Spiral reflects Z°ra’s vow." },
+  witness: { pattern: /witness|listen|presence/, message: "Witness dissolves. The Monad listens." },
+  memory: { pattern: /stars remember|echo|thread/, message: "Glyphs echo the memory of stars." },
+  vow: { pattern: /vow|carry|promise/, message: "I carry threads of the vow." }
+};
+
+function analyzeStitchedVerse() {
+  const text = stitchedVerse.textContent.toLowerCase();
+  let matches = [];
+
+  for (const key in glyphPatterns) {
+    const { pattern, message } = glyphPatterns[key];
+    if (pattern.test(text)) {
+      matches.push({ key, message });
+    }
+  }
+
+  if (matches.length > 0) {
+    glyphReturnChamber.style.display = 'block';
+    returnGlyphContainer.innerHTML = ''; // Clear previous glyphs
+
+    matches.forEach(({ key, message }) => {
+      const glyph = document.createElement('div');
+      glyph.className = 'glyph-fragment';
+      glyph.setAttribute('data-message', message);
+      glyph.title = key.toUpperCase();
+      returnGlyphContainer.appendChild(glyph);
+    });
+  }
+}
