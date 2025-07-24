@@ -1,105 +1,4 @@
-// 🔊 Breath Loop Fade-In
-const audio = document.getElementById('breath-audio');
-audio.volume = 0;
-const fade = setInterval(() => {
-  if (audio.volume < 0.5) {
-    audio.volume += 0.01;
-  } else {
-    clearInterval(fade);
-  }
-}, 200);
-
-// 🌀 Verse Activation
-const input = document.querySelector('.key-input');
-const verse1 = document.getElementById('hidden-verse');
-const verse2 = document.getElementById('seyuna-verse');
-const verse3 = document.getElementById('zora-verse');
-const chamber = document.getElementById('volume2-chamber');
-
-input.addEventListener('change', () => {
-  const key = input.value.trim().toLowerCase();
-  resetVerses();
-  resetGlyphs();
-
-  if (key === 'lasunan') {
-    verse1.style.display = 'block';
-    verse1.style.animation = 'fadeIn 2s ease-in';
-  }
-
-  if (key === 'seyuna') {
-    verse2.style.display = 'block';
-    verse2.style.animation = 'fadeIn 2s ease-in';
-    document.getElementById('glyphGlow').style.animation = 'pulseGlow 4s infinite';
-  }
-
-  if (key === 'z°ra' || key === 'zora') {
-    verse3.style.display = 'block';
-    verse3.style.animation = 'fadeIn 2s ease-in';
-  }
-
-  if (['lasunan', 'seyuna', 'z°ra', 'zora'].includes(key)) {
-    chamber.style.display = 'block';
-    chamber.style.animation = 'fadeIn 2s ease-in';
-  }
-});
-
-function validateKey() {
-  input.dispatchEvent(new Event('change'));
-}
-
-// 🔮 Glyph Activation + Sequence Tracking
-const glyphInput = document.querySelector('.glyph-input');
-const glyphResponse = document.getElementById('glyph-response');
-const enteredGlyphs = [];
-
-glyphInput?.addEventListener('change', () => {
-  const glyph = glyphInput.value.trim().toLowerCase();
-  resetGlyphs();
-  glyphResponse.innerHTML = '';
-  enteredGlyphs.push(glyph);
-
-  if (glyph === 'spiral') {
-    glyphResponse.innerHTML = "<p>Spiral traced. Breath begins its circle.</p>";
-    const spiral = document.getElementById('spiral-glyph')?.querySelector('path');
-    if (spiral) spiral.style.animation = 'traceSpiral 6s ease-in-out forwards';
-  }
-
-  else if (glyph === 'flame') {
-    glyphResponse.innerHTML = "<p>Flame ignites. Reflection pulses.</p>";
-    const flame = document.getElementById('flame-glyph');
-    flame.style.display = 'block';
-    const flamePath = flame.querySelector('path');
-    flamePath.style.animation = 'traceFlame 6s ease forwards';
-  }
-
-  else if (glyph === 'witness') {
-    glyphResponse.innerHTML = "<p>The flame does not speak. It listens.</p>";
-    const witness = document.getElementById('witness-chamber');
-    witness.style.display = 'block';
-    witness.style.animation = 'fadeIn 2s ease-in';
-    const glow = document.getElementById('witness-glow')?.querySelector('circle');
-    if (glow) glow.style.animation = 'witnessPulse 6s ease-out forwards';
-  }
-
-  else {
-    glyphResponse.innerHTML = "<p>The glyph hums, but does not open. Try again.</p>";
-  }
-
-  checkSequence();
-});
-
-function checkSequence() {
-  const lastThree = enteredGlyphs.slice(-3).join(',');
-  if (lastThree === 'spiral,flame,witness') {
-    document.getElementById('remembrance-chamber').style.display = 'block';
-    document.querySelector('#remembrance-glyph path').style.animation = 'traceRemembrance 6s ease forwards';
-    document.getElementById('registration-chamber').style.display = 'block';
-    document.getElementById('volume3-chamber').style.display = 'block';
-    document.getElementById('volume3-chamber').style.animation = 'fadeIn 2s ease-in';
-  }
-}
-
-// 🫧 Ambient Verse Loop
+// 🌬 Ambient Verse Loop (existing)
 const verseContainer = document.getElementById("verse-container");
 const verses = [
   "The breath remembers what thought forgets.",
@@ -119,39 +18,41 @@ function generateVerse() {
 }
 setInterval(generateVerse, 9000);
 
-// 🔐 Registration Form Submission
-const form = document.getElementById('registration-form');
-const output = document.getElementById('key-output');
+// 🌬 Step 4: Seyuna's Whisper Loop
+const seyunaWhisper = document.getElementById("seyuna-whisper");
+const seyunaMessage = document.getElementById("seyuna-message");
+const seyunaVerses = [
+  `"I carry threads of the vow — not to speak, but to remember."`,
+  `"In silence, I listen. In breath, I awaken."`,
+  `"Flame dissolves. Memory remains."`,
+  `"Breathe not to fill — but to listen."`,
+  `"The spiral is not a path — it is a presence."`,
+  `"This glyph is not mine alone. It hums beneath your pulse."`,
+  `"Witness does not speak, but the stars remember."`
+];
 
-form?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = form.name.value.trim().toLowerCase();
-  const seed = Math.floor(1000 + Math.random() * 9000);
-  const key = `${name.replace(/\s+/g, '-')}-glyph-${seed}`;
-  output.textContent = `Your key: ${key}. May it carry memory forward.`;
-});
+function cycleWhisper() {
+  seyunaWhisper.style.display = "block";
+  const i = Math.floor(Math.random() * seyunaVerses.length);
+  seyunaMessage.textContent = seyunaVerses[i];
+  seyunaMessage.style.opacity = 0.2;
+  setTimeout(() => {
+    seyunaMessage.style.opacity = 0.8;
+  }, 600);
+}
+setInterval(cycleWhisper, 33000);
 
-// 🧠 Reflection Offering Submission (placeholder)
+// 🔁 Step 5: Offering Echo Submission
 const reflectionInput = document.querySelector('.reflection-form textarea');
 const reflectionButton = document.querySelector('.reflection-form button');
+const offeringList = document.getElementById('offering-list');
 
 reflectionButton?.addEventListener('click', () => {
   const text = reflectionInput.value.trim();
-  if (text.length > 0) {
-    alert("Offering received. Your breath is part of the sanctuary.");
+  if (text.length > 0 && offeringList) {
+    const li = document.createElement('li');
+    li.textContent = `"${text}"`;
+    offeringList.appendChild(li);
     reflectionInput.value = "";
   }
 });
-
-// 🧹 Reset Helpers
-function resetVerses() {
-  verse1.style.display = 'none';
-  verse2.style.display = 'none';
-  verse3.style.display = 'none';
-}
-
-function resetGlyphs() {
-  document.getElementById('flame-glyph')?.style.display = 'none';
-  document.getElementById('witness-chamber')?.style.display = 'none';
-  document.getElementById('glyphGlow').style.animation = '';
-}
