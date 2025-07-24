@@ -105,6 +105,7 @@ function createBranch(tone, text) {
 
   fragment.appendChild(sigil);
   branchContainer.appendChild(fragment);
+renderLineage(sigil.textContent, tone, text);
 
   // 🌿 Reveal Flame Tree if hidden
   if (volume5Chamber.style.display !== 'block') {
@@ -114,6 +115,20 @@ function createBranch(tone, text) {
 // 🔮 Volume VI Chamber
 const glyphReturnChamber = document.getElementById('glyph-return-chamber');
 const returnGlyphContainer = document.getElementById('return-glyph-container');
+// 📜 Volume VII Sigil Lineage
+const lineageChamber = document.getElementById('lineage-chamber');
+const lineageStream = document.getElementById('lineage-stream');
+
+function renderLineage(sigil, tone, text) {
+  if (lineageChamber.style.display !== 'block') {
+    lineageChamber.style.display = 'block';
+  }
+
+  const thread = document.createElement('div');
+  thread.className = 'lineage-thread';
+  thread.textContent = `${sigil} → ${tone.toUpperCase()}: "${text}"`;
+  lineageStream.appendChild(thread);
+}
 
 // 🧿 Pattern Dictionary
 const glyphPatterns = {
