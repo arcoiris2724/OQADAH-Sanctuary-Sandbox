@@ -1,5 +1,11 @@
-<<<<<<< HEAD
 // Living Verse Generator
+if (glyph === 'spiral') {
+  glyphResponse.innerHTML = "<p>Spiral traced. Breath begins its circle.</p>";
+  const spiral = document.getElementById('spiral-glyph')?.querySelector('path');
+  if (spiral) {
+    spiral.style.animation = 'traceSpiral 6s ease-in-out forwards';
+  }
+}
 
 const verseContainer = document.getElementById("verse-container");
 
