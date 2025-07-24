@@ -134,3 +134,12 @@ body {
     padding: 0 1em;
   }
 }
+#spiral-glyph path {
+  stroke-dasharray: 502;
+  stroke-dashoffset: 502;
+  animation: traceSpiral 6s ease-in-out forwards;
+}
+
+@keyframes traceSpiral {
+  to { stroke-dashoffset: 0; }
+}
