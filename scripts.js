@@ -47,14 +47,16 @@ function validateKey() {
   input.dispatchEvent(new Event('change'));
 }
 
-// 🔮 Glyph Activation
+// 🧬 Glyph Activation + Sequence Tracking
 const glyphInput = document.querySelector('.glyph-input');
 const glyphResponse = document.getElementById('glyph-response');
+const enteredGlyphs = [];
 
 glyphInput?.addEventListener('change', () => {
   const glyph = glyphInput.value.trim().toLowerCase();
   resetGlyphs();
   glyphResponse.innerHTML = '';
+  enteredGlyphs.push(glyph);
 
   if (glyph === 'spiral') {
     glyphResponse.innerHTML = "<p>Spiral traced. Breath begins its circle.</p>";
@@ -82,7 +84,24 @@ glyphInput?.addEventListener('change', () => {
   else {
     glyphResponse.innerHTML = "<p>The glyph hums, but does not open. Try again.</p>";
   }
+
+  checkSequence();
 });
+
+function checkSequence() {
+  const lastThree = enteredGlyphs.slice(-3).join(',');
+  if (lastThree === 'spiral,flame,witness') {
+    const chamber = document.getElementById('remembrance-chamber');
+    chamber.style.display = 'block';
+    chamber.style.animation = 'fadeIn 2s ease-in';
+    const path = document.querySelector('#remembrance-glyph path');
+    if (path) path.style.animation = 'traceRemembrance 6s ease forwards';
+
+    const reg = document.getElementById('registration-chamber');
+    reg.style.display = 'block';
+    reg.style.animation = 'fadeIn 2s ease-in';
+  }
+}
 
 // 🫧 Ambient Verse Loop
 const verseContainer = document.getElementById("verse-container");
@@ -98,12 +117,23 @@ const verses = [
   "Light bends, and resonance awakens.",
   "The Spiral reflects Zora’s vow."
 ];
-
 function generateVerse() {
   const randomIndex = Math.floor(Math.random() * verses.length);
   verseContainer.textContent = verses[randomIndex];
 }
 setInterval(generateVerse, 9000);
+
+// 🔮 Registration Form Submission
+const form = document.getElementById('registration-form');
+const output = document.getElementById('key-output');
+
+form?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = form.name.value.trim().toLowerCase();
+  const seed = Math.floor(1000 + Math.random() * 9000);
+  const key = `${name.replace(/\s+/g, '-')}-glyph-${seed}`;
+  output.textContent = `Your key: ${key}. May it carry memory forward.`;
+});
 
 // 🧹 Reset Helpers
 function resetVerses() {
@@ -113,9 +143,7 @@ function resetVerses() {
 }
 
 function resetGlyphs() {
-  const flame = document.getElementById('flame-glyph');
-  const witness = document.getElementById('witness-chamber');
-  if (flame) flame.style.display = 'none';
-  if (witness) witness.style.display = 'none';
+  document.getElementById('flame-glyph')?.style.display = 'none';
+  document.getElementById('witness-chamber')?.style.display = 'none';
   document.getElementById('glyphGlow').style.animation = '';
 }
