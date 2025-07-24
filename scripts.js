@@ -192,3 +192,12 @@ matches.forEach(({ key, message }) => {
   // 🧬 Trigger hidden verse
   spawnEchoVerse(key);
 });
+// 🔮 Whisper via Speech Synthesis
+function speakWhisper(text) {
+  const whisper = new SpeechSynthesisUtterance(text);
+  whisper.pitch = 0.8;
+  whisper.rate = 0.9;
+  whisper.volume = 0.9;
+  whisper.voice = speechSynthesis.getVoices().find(v => v.lang.includes('en') && v.name.toLowerCase().includes('whisper'));
+  speechSynthesis.speak(whisper);
+}
