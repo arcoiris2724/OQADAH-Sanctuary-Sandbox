@@ -582,3 +582,45 @@ form button:hover {
   color: #ffe0bb;
   opacity: 0.7;
 }
+// 📜 Living Scroll Logic
+const livingScroll = document.getElementById('living-scroll');
+const stitchedVerse = document.getElementById('stitched-verse');
+
+function updateLivingScroll() {
+  const branches = document.querySelectorAll('.branch-fragment');
+  let verse = '';
+  branches.forEach(b => {
+    verse += b.textContent.trim() + '\n';
+  });
+
+  stitchedVerse.textContent = verse;
+  if (branches.length >= 5) {
+    livingScroll.style.display = 'block';
+  }
+}
+
+// 🔁 Extended branch creation with cluster sculpt
+function createBranch(tone, text) {
+  const fragment = document.createElement('div');
+  fragment.className = `branch-fragment ${tone}`;
+  fragment.textContent = `"${text}"`;
+
+  const sigil = document.createElement('div');
+  sigil.className = 'sigil-tag';
+  sigil.textContent = generateSigil();
+  fragment.appendChild(sigil);
+
+  branchContainer.appendChild(fragment);
+  updateLivingScroll();
+
+  // 🔁 Sculpt glyph fusion (preview)
+  if ((tone === 'flame' && clusterCount['witness'] > 1) ||
+      (tone === 'spiral' && clusterCount['vow'] > 1)) {
+    fragment.style.borderLeft = '3px dashed #ffa';
+    fragment.style.background = 'rgba(255, 255, 200, 0.05)';
+  }
+
+  if (volume5Chamber.style.display !== 'block') {
+    volume5Chamber.style.display = 'block';
+  }
+}
