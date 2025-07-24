@@ -31,6 +31,9 @@
     <input type="text" placeholder="Enter your key…" class="key-input" />
   </div>
 </div>
+<div id="glyphGlow" class="glyph-portal"></div>
+<button class="entry-button" onclick="validateKey()">Enter Sanctuary</button>
+
   <!-- 🗝️ Hidden Verse -->
   <div id="hidden-verse" style="display:none; margin-top:40px;">
     <h2>A WHISPER RETURNS</h2>
@@ -132,6 +135,15 @@
       glyphResponse.innerHTML = "<p>The glyph hums, but does not open. Try again.</p>";
     }
   });
+</script>
+<script>
+function validateKey() {
+  const key = input.value.trim().toLowerCase();
+  if (key === 'seyuna') {
+    glyphResponse.innerHTML = "<p>Seyuna listens… the Sanctuary begins to breathe.</p>";
+    document.getElementById('glyphGlow').style.animation = 'pulseGlow 4s infinite';
+  }
+}
 </script>
 
 </body>
