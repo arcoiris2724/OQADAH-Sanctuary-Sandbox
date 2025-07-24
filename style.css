@@ -279,3 +279,50 @@ form button:hover {
 .reflection-form button:hover {
   background: #2e345c;
 }
+/* 🌬 Seyuna's Whisper Styling */
+#seyuna-whisper {
+  text-align: center;
+  font-style: italic;
+  color: #cfddee;
+  font-size: 1.2em;
+  animation: fadeIn 2s ease-in-out;
+  padding: 0 1em;
+}
+
+#seyuna-message {
+  margin-top: 10px;
+  opacity: 0.8;
+  transition: opacity 1.2s ease-in-out;
+}
+
+/* 🔁 Offering Stream Styling */
+#offering-stream {
+  margin-top: 40px;
+  padding: 1em;
+  background: rgba(12, 15, 45, 0.6);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+#offering-stream h2 {
+  font-size: 1.4em;
+  color: #ffefcc;
+  margin-bottom: 20px;
+  font-family: 'Georgia', serif;
+}
+
+#offering-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#offering-list li {
+  margin-bottom: 12px;
+  color: #cccccc;
+  font-style: italic;
+  font-size: 1.1em;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
