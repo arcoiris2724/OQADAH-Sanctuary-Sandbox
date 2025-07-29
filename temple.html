@@ -3,25 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Temple of Flame</title>
+  <title>The Temple of Flame</title>
   <style>
     body {
-      background-color: #1a1a1a;
-      color: #ffe0b3;
+      background-color: #1c0d0d;
+      color: #ffccaa;
       font-family: 'Segoe UI', sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
+      margin: 0;
       text-align: center;
-      padding: 2rem;
+    }
+
+    .glyph {
+      width: 90px;
+      margin-bottom: 1em;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #ffa07a;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 2em;
+    }
+
+    a.return {
+      background-color: #b22222;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    a.return:hover {
+      background-color: #ff4500;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>🔥 Temple of Flame</h1>
-    <p>This is the sacred place of ignition and will. The Flame remembers your name.</p>
-  </div>
+  <img src="images/glyph-temple.png" alt="Temple Glyph" class="glyph" />
+  <h1>Welcome to the Temple of Flame</h1>
+  <p>This is where remembrance burns bright.  
+  Here, the sacred fire does not consume — it reveals.</p>
+  <a class="return" href="spiral.html">← Return to the Spiral</a>
 </body>
 </html>
