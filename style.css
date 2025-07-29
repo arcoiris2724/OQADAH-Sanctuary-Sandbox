@@ -1,57 +1,830 @@
-<<<<<<< HEAD
-/* Shared CSS styles */
-=======
-/* Base Settings */
+/* 🌌 Base Styling */
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(to right, #0e1f2d, #1d364c);
-  color: #f4f4f4;
-  scroll-behavior: smooth;
+  background: radial-gradient(ellipse at bottom, #0a0a1a 0%, #000 100%);
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* Navigation */
-nav {
-  background-color: #101e2f;
-  padding: 1em;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+/* 🫧 Breath Container Motion */
+#breath-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a1e40 10%, transparent 60%);
+  opacity: 0.4;
+  animation: inhaleExhale 9s ease-in-out infinite;
+  z-index: 1;
 }
 
-nav ul {
+@keyframes inhaleExhale {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* 🖼️ Gateway Styling */
+.film-gateway {
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.poster-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+/* 📝 Verse & Input Styling */
+.verse h1 {
+  font-size: 2em;
+  margin-top: 30px;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+  color: #f9f9f9;
+}
+
+.verse p {
+  font-size: 1.2em;
+  color: #cccccc;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.key-input,
+.glyph-input,
+form input,
+form textarea {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: #111;
+  color: #eee;
+  width: 280px;
+  margin-top: 10px;
+  font-family: inherit;
+}
+
+/* 🔘 Entry + Form Button */
+.entry-button,
+form button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #0c0f2d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+form button:hover {
+  background: #1a1e40;
+}
+
+/* 🌀 Glyph Portal Glow */
+.glyph-portal {
+  width: 80px;
+  height: 80px;
+  margin: 20px auto;
+  background: radial-gradient(circle, #6cc9ff 0%, #0c0f2d 80%);
+  border-radius: 50%;
+  opacity: 0.7;
+  box-shadow: 0 0 10px #6cc9ff;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px #6cc9ff; }
+  50% { box-shadow: 0 0 25px #84e8ff; }
+}
+
+/* 🔥 Flame Glyph Animation */
+@keyframes traceFlame {
+  to { stroke-dashoffset: 0; }
+}
+#flame-glyph path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: traceFlame 6s ease forwards;
+}
+
+/* 🌀 Spiral Glyph Animation */
+@keyframes traceSpiral {
+  to { stroke-dashoffset: 0; }
+}
+#spiral-glyph path {
+  stroke-dasharray: 502;
+  stroke-dashoffset: 502;
+  animation: traceSpiral 6s ease-in-out forwards;
+}
+
+/* 🧿 Witness Glow Animation */
+@keyframes witnessPulse {
+  0%   { stroke-dashoffset: 376; opacity: 0.1; transform: scale(1); }
+  50%  { stroke-dashoffset: 188; opacity: 0.9; transform: scale(1.05); }
+  100% { stroke-dashoffset: 0; opacity: 0.6; transform: scale(1); }
+}
+#witness-glow circle {
+  stroke-dasharray: 376;
+  stroke-dashoffset: 376;
+  opacity: 0.6;
+  animation: witnessPulse 6s ease-out forwards;
+}
+
+/* 🧬 Remembrance Glyph Styling */
+#remembrance-glyph path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: traceRemembrance 6s ease forwards;
+}
+@keyframes traceRemembrance {
+  to { stroke-dashoffset: 0; }
+}
+
+/* 🌟 Star Shimmer */
+@keyframes shimmer {
+  0%   { opacity: 0.2; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: shimmer 4s infinite ease-in-out;
+  z-index: 0;
+}
+
+/* 🌬 Fade In Utility */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌬 Ambient Verse Styling */
+.ambient-verse {
+  text-align: center;
+  font-size: 1.2em;
+  color: #cccccc;
+  font-style: italic;
+  margin-top: 30px;
+  opacity: 0.8;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* 🔮 Registration Chamber */
+#registration-form {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+#registration-form input,
+#registration-form textarea {
+  margin: 10px 0;
+  width: 80%;
+  max-width: 400px;
+}
+#key-output {
+  text-align: center;
+  font-size: 1.1em;
+  color: #ffefcc;
+  font-style: italic;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .poster-img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  .verse h1 { font-size: 1.5em; }
+  .verse p  { font-size: 1em; }
+  .key-input,
+  .glyph-input,
+  form input,
+  form textarea {
+    width: 90%;
+    font-size: 1em;
+  }
+  #hidden-verse,
+  #seyuna-verse,
+  #zora-verse,
+  #volume2-chamber,
+  #witness-chamber,
+  #remembrance-chamber,
+  #registration-chamber {
+    padding: 0 1em;
+  }
+}
+/* 🛡️ Volume III Chamber */
+#volume3-chamber {
+  padding: 2em;
+  background: linear-gradient(to bottom, #0c0f2d 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* ✴ Initiation Verse */
+.initiation-verse {
+  font-style: italic;
+  font-size: 1.2em;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+/* 💠 Reflection Form */
+.reflection-form h3 {
+  font-size: 1.1em;
+  color: #fdfdfd;
+  margin-bottom: 10px;
+}
+
+.reflection-form textarea {
+  padding: 12px;
+  width: 80%;
+  max-width: 500px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: #111;
+  color: #eee;
+  font-family: inherit;
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.reflection-form button {
+  padding: 10px 24px;
+  background: #1a1e40;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.reflection-form button:hover {
+  background: #2e345c;
+}
+/* 🌬 Seyuna's Whisper Styling */
+#seyuna-whisper {
+  text-align: center;
+  font-style: italic;
+  color: #cfddee;
+  font-size: 1.2em;
+  animation: fadeIn 2s ease-in-out;
+  padding: 0 1em;
+}
+
+#seyuna-message {
+  margin-top: 10px;
+  opacity: 0.8;
+  transition: opacity 1.2s ease-in-out;
+}
+
+/* 🔁 Offering Stream Styling */
+#offering-stream {
+  margin-top: 40px;
+  padding: 1em;
+  background: rgba(12, 15, 45, 0.6);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+#offering-stream h2 {
+  font-size: 1.4em;
+  color: #ffefcc;
+  margin-bottom: 20px;
+  font-family: 'Georgia', serif;
+}
+
+#offering-list {
   list-style: none;
-  justify-content: center;
-  gap: 2em;
   padding: 0;
   margin: 0;
 }
 
-nav a {
-  color: #00c2ff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+#offering-list li {
+  margin-bottom: 12px;
+  color: #cccccc;
+  font-style: italic;
+  font-size: 1.1em;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+/* ✴ Seyuna Glyph Ring */
+#seyuna-ring {
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease-in-out;
+}
+#seyuna-ring svg circle {
+  stroke-dasharray: 376;
+  stroke-dashoffset: 376;
+  opacity: 0.5;
+  animation: ringPulse 9s ease-in-out infinite;
 }
 
-nav a:hover {
-  color: #ffd700;
+@keyframes ringPulse {
+  0%   { stroke-dashoffset: 376; opacity: 0.2; transform: scale(1); }
+  50%  { stroke-dashoffset: 188; opacity: 0.7; transform: scale(1.03); }
+  100% { stroke-dashoffset: 0;   opacity: 0.4; transform: scale(1); }
 }
 
-/* Sections */
-section {
-  padding: 4em 2em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* 🧬 Volume IV Chamber */
+#volume4-chamber {
+  padding: 2em;
+  background: linear-gradient(to bottom, #101529 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  animation: fadeIn 2s ease-in-out;
 }
 
-h1, h2 {
-  font-family: "Cinzel", serif;
-  font-weight: 600;
-  color: #ffd700;
-  margin-bottom: 0.5em;
+.archetype-map p {
+  font-style: italic;
+  font-size: 1.1em;
+  color: #ccc;
+  margin: 10px 0;
 }
 
-p {
-  max-width
->>>>>>> 98f19835f4248b60b5bf202cd61d19757c18d919
+/* 🔁 Cluster Stream */
+#cluster-stream {
+  padding: 1em;
+  text-align: center;
+  background: rgba(20, 22, 40, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(255,255,255,0.03);
+  animation: fadeIn 2s ease-in-out;
+}
+
+#cluster-stream h2 {
+  font-size: 1.4em;
+  color: #ffecc0;
+  margin-bottom: 16px;
+  font-family: 'Georgia', serif;
+}
+
+#cluster-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#cluster-list li {
+  margin-bottom: 10px;
+  color: #d0d0d0;
+  font-style: italic;
+  font-size: 1.05em;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+/* 🌌 Orbit Map Container */
+#orbit-map {
+  margin-top: 60px;
+  text-align: center;
+  padding: 1em;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.orbit-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 300px;
+}
+
+/* 🪐 Individual Orbits */
+.orbit {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  animation: rotateOrbit 20s linear infinite;
+  transform-origin: center center;
+}
+
+/* ✴ Archetype-Specific Orbits */
+.flame-orbit   { top: 10%; left: 5%; }
+.spiral-orbit  { top: 30%; right: 10%; }
+.witness-orbit { top: 60%; left: 15%; }
+.memory-orbit  { top: 40%; right: 20%; }
+.vow-orbit     { top: 20%; left: 40%; }
+
+/* 💠 Glyph Node Inside Orbit */
+.orb-core {
+  width: 16px;
+  height: 16px;
+  background: #ffc;
+  border-radius: 50%;
+  margin: 60px auto;
+  box-shadow: 0 0 6px rgba(255,255,255,0.3);
+}
+
+/* 🔆 Glow on Activation */
+.orb-core.glow {
+  background: #ffcf8c;
+  box-shadow: 0 0 12px #ffcf8c;
+}
+
+/* 🌀 Label Styling */
+.glyph-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80px);
+  font-size: 0.9em;
+  color: #cccccc;
+  font-style: italic;
+}
+
+/* 🔁 Orbit Rotation */
+@keyframes rotateOrbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* 🧬 Verse Trail Styling */
+.verse-trail {
+  position: absolute;
+  width: 140px;
+  text-align: center;
+  margin-top: -20px;
+  font-style: italic;
+  font-size: 1em;
+  color: #cccccc;
+  animation: fadeIn 2s ease forwards;
+}
+
+.verse-trail div {
+  margin-bottom: 10px;
+  opacity: 0.2;
+  animation: cometFade 9s ease-in-out forwards;
+  position: relative;
+}
+
+@keyframes cometFade {
+  0% { transform: translateY(0) scale(1); opacity: 0.2; }
+  50% { transform: translateY(-10px) scale(1.05); opacity: 0.7; }
+  100% { transform: translateY(-20px) scale(1); opacity: 0.4; }
+}
+
+/* 🔁 Contributor Sigil Styling */
+.sigil-tag {
+  font-size: 0.7em;
+  color: #ffecc0;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: monospace;
+  opacity: 0.6;
+}
+
+/* 🔮 Convergence Glyph Styling */
+#convergence-glyph {
+  text-align: center;
+  padding: 1em;
+  background: radial-gradient(circle, #302020 0%, #000 100%);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255,200,150,0.1);
+  animation: fadeIn 2s ease-in-out;
+}
+
+#convergence-glyph svg path {
+  transform-origin: center;
+  animation: glyphPulse 8s ease-in-out infinite;
+}
+
+@keyframes glyphPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50%      { transform: scale(1.04); opacity: 1; }
+}
+/* 🔥 Volume V: Flame Tree Chamber */
+#volume5-chamber {
+  padding: 2em;
+  background: radial-gradient(circle, #1a1e2d 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 14px rgba(255, 200, 150, 0.08);
+  animation: fadeIn 2s ease-in-out;
+}
+
+#flame-root svg path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: traceFlameTree 6s ease forwards;
+}
+
+@keyframes traceFlameTree {
+  to { stroke-dashoffset: 0; }
+}
+
+.tree-whisper {
+  font-style: italic;
+  font-size: 1.1em;
+  color: #ffd4bb;
+  margin-top: 10px;
+}
+
+#branch-container {
+  margin-top: 30px;
+  padding: 1em;
+}
+
+/* 🌿 Branch Styling */
+.branch-fragment {
+  font-style: italic;
+  font-size: 1.05em;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: branchGrow 5s ease forwards;
+  border-left: 2px solid #ffd8b0;
+  padding-left: 10px;
+  position: relative;
+}
+
+/* 🌀 Tone-Specific Branch Colors */
+.branch-fragment.flame   { border-color: #ffa07a; color: #ffbca0; }
+.branch-fragment.spiral  { border-color: #7adfff; color: #aeeeff; }
+.branch-fragment.witness { border-color: #cfaaff; color: #e3d6ff; }
+.branch-fragment.memory  { border-color: #f0e6bb; color: #fffccc; }
+.branch-fragment.vow     { border-color: #baffd3; color: #ddffe6; }
+
+@keyframes branchGrow {
+  0%   { transform: translateY(20px); opacity: 0; }
+  60%  { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-5px); opacity: 0.8; }
+}
+
+/* 🔁 Sigil on Branch */
+.branch-fragment .sigil-tag {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 0.7em;
+  font-family: monospace;
+  color: #ffe0bb;
+  opacity: 0.7;
+}
+// 📜 Living Scroll Logic
+const livingScroll = document.getElementById('living-scroll');
+const stitchedVerse = document.getElementById('stitched-verse');
+
+function updateLivingScroll() {
+  const branches = document.querySelectorAll('.branch-fragment');
+  let verse = '';
+  branches.forEach(b => {
+    verse += b.textContent.trim() + '\n';
+  });
+
+  stitchedVerse.textContent = verse;
+  if (branches.length >= 5) {
+    livingScroll.style.display = 'block';
+  }
+}
+
+// 🔁 Extended branch creation with cluster sculpt
+function createBranch(tone, text) {
+  const fragment = document.createElement('div');
+  fragment.className = `branch-fragment ${tone}`;
+  fragment.textContent = `"${text}"`;
+
+  const sigil = document.createElement('div');
+  sigil.className = 'sigil-tag';
+  sigil.textContent = generateSigil();
+  fragment.appendChild(sigil);
+
+  branchContainer.appendChild(fragment);
+  updateLivingScroll();
+
+  // 🔁 Sculpt glyph fusion (preview)
+  if ((tone === 'flame' && clusterCount['witness'] > 1) ||
+      (tone === 'spiral' && clusterCount['vow'] > 1)) {
+    fragment.style.borderLeft = '3px dashed #ffa';
+    fragment.style.background = 'rgba(255, 255, 200, 0.05)';
+  }
+
+  if (volume5Chamber.style.display !== 'block') {
+    volume5Chamber.style.display = 'block';
+  }
+}
+/* 🔮 Volume VI Chamber */
+#glyph-return-chamber {
+  padding: 2em;
+  background: radial-gradient(circle, #1a1a2a 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 14px rgba(255, 255, 200, 0.08);
+  animation: fadeIn 2s ease-in-out;
+}
+#return-glyph-container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* 🧿 Returning Glyph Fragments */
+.glyph-fragment {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #ffd4aa 0%, #222 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffd4aa;
+  animation: pulseReturn 5s ease-in-out infinite;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.glyph-fragment:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px #ffeccc;
+}
+
+/* ✴ Hover Echo */
+.glyph-fragment::after {
+  content: attr(data-message);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7em;
+  color: #ccc;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.glyph-fragment:hover::after {
+  opacity: 1;
+}
+
+@keyframes pulseReturn {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+/* 📜 Sigil Lineage Styling */
+#lineage-chamber {
+  padding: 2em;
+  background: linear-gradient(to bottom, #111 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+  box-shadow: 0 0 12px rgba(255,255,255,0.05);
+}
+#lineage-stream {
+  margin-top: 20px;
+  font-style: italic;
+  color: #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+.lineage-thread {
+  background: rgba(255,255,255,0.05);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  border-left: 2px solid #ffc;
+}
+/* 🌀 Ripple After Click */
+.glyph-fragment.clicked {
+  box-shadow: 0 0 20px #fff;
+  animation: rippleGlow 1.2s ease-out;
+}
+
+@keyframes rippleGlow {
+  0% { box-shadow: 0 0 4px #fff; transform: scale(1); }
+  50% { box-shadow: 0 0 24px #ffd; transform: scale(1.1); }
+  100% { box-shadow: 0 0 10px #ffa; transform: scale(1); }
+}
+/* ✴ Glyph Bloom Animation */
+@keyframes glyphBloom {
+  0% { transform: scale(0.8); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+.glyph-fragment {
+  animation: glyphBloom 1.4s ease-out forwards, pulseReturn 5s ease-in-out infinite;
+}
+
+/* 🌀 Ripple on Click */
+.glyph-fragment.clicked {
+  box-shadow: 0 0 20px #fff;
+  animation: rippleGlow 1.2s ease-out;
+}
+@keyframes rippleGlow {
+  0% { box-shadow: 0 0 4px #fff; transform: scale(1); }
+  50% { box-shadow: 0 0 24px #ffd; transform: scale(1.1); }
+  100% { box-shadow: 0 0 10px #ffa; transform: scale(1); }
+}
+/* 🌌 Volume VIII Styling */
+#volume8-chamber {
+  padding: 2em;
+  background: radial-gradient(circle, #0a0a1a 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(255,255,255,0.08);
+  animation: fadeIn 2s ease-in-out;
+}
+
+#glyph-constellation {
+  display: block;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.06);
+}
+
+/* ✴ Glyph Nodes */
+.glyph-node {
+  fill: #ffeccc;
+  stroke: #ffcfa0;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.glyph-node:hover {
+  transform: scale(1.2);
+  fill: #fffbe0;
+}
+
+/* 🧬 Constellation Lines */
+.glyph-line {
+  stroke: #cccccc;
+  stroke-width: 1;
+  opacity: 0.3;
+}
+/* 🔮 Archetype Sigil Portal */
+#volume9-chamber {
+  padding: 2em;
+  background: radial-gradient(circle, #1a0a1a 0%, #000 100%);
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+  box-shadow: 0 0 14px rgba(255, 200, 255, 0.1);
+}
+
+#archetype-sigil-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.archetype-sigil {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #ffaaff 0%, #1a1a2a 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 16px #ffaaff;
+  animation: archetypePulse 4s ease-in-out infinite;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+.archetype-sigil:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 22px #ffccff;
+}
+
+.archetype-sigil::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8em;
+  color: #ccc;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.archetype-sigil:hover::after {
+  opacity: 1;
+}
+
+@keyframes archetypePulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+/* 🔧 Navigation Bar Styling */
+/* 🔧 Sanctuary Navigation Styling */

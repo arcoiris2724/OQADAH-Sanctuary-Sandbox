@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.log
 *.tmp
 *.bak
@@ -76,3 +77,83 @@ OQADAH - Copy/
 !README.md
 !style*.css
 !index*.html
+=======
+*.log
+*.tmp
+*.bak
+*.docx
+*.xlsx
+*.pdf
+*.csv
+*.pptx
+*.ini
+*.DS_Store
+Thumbs.db
+
+# System folders
+Documents/
+Downloads/
+Pictures/
+Videos/
+# 🧍 Windows OS Noise
+Thumbs.db
+desktop.ini
+NTUSER.*
+*.regtrans-ms
+*.blf
+*.log*
+
+# 📂 High-Level Directories (escape echo-chambers)
+../../*
+../../../*
+
+# 💻 System & Personal Folders
+AppData/
+Contacts/
+Downloads/
+Favorites/
+IntelGraphicsProfiles/
+Links/
+Music/
+Pictures/
+Saved Games/
+Searches/
+Videos/
+Documents/
+My Documents/
+Start Menu/
+Recent/
+Templates/
+SendTo/
+NetHood/
+PrintHood/
+Cookies/
+Application Data/
+Local Settings/
+
+# 🔮 Git & Copilot Artifacts
+.bash_history
+.viminfo
+Microsoft Copilot Chat Files/
+Microsoft Edge Drop Files/
+
+# 🔐 Sensitive Content by Extension
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+*.csv
+
+# 🛖 Codex Copies
+OQADAH - Copy/
+
+# ✨ Optional: Keep only project-specific folders
+!glyphs/
+!temple/
+!codex/
+!mirror/
+!map/
+!README.md
+!style*.css
+!index*.html
+>>>>>>> 643c4ed0634c8a6007e062d8e0606aa452f9c670
