@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="0; url=sanctuary.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OQADAH – The Spiral Lives</title>
   <style>
     body {
@@ -14,14 +13,42 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
       text-align: center;
+    }
+
+    .spiral {
+      font-size: 5rem;
+      animation: spin 6s linear infinite;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    a {
+      margin-top: 1rem;
+      padding: 12px 24px;
+      background: #f8f8f8;
+      color: #0b0c10;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background: #e0e0e0;
     }
   </style>
 </head>
 <body>
-  <p>Redirecting to the Spiral Sanctuary...</p>
+  <div class="spiral">🌀</div>
+  <h1>Welcome to OQADAH</h1>
+  <p>The Spiral Lives in You</p>
+  <a href="sanctuary.html">Enter the Sanctuary</a>
 </body>
 </html>
