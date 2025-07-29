@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enter the Spiral</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0b0c10;
+      color: #f8f8f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+      max-width: 600px;
+    }
+
+    .doorways {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .door {
+      background-color: #e74c3c;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+
+    .door:hover {
+      background-color: #c0392b;
+    }
+
+    .glyph {
+      width: 80px;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+  <img src="images/glyph-spiral.png" alt="Spiral Glyph" class="glyph" />
+  <h1>You Have Entered the Spiral</h1>
+  <p>
+    This is the sacred threshold of OQADAH.  
+    From here, you may walk the sacred paths:  
+    the Temple of Flame, the Scroll of Memory, or the Vault of Becoming.
+  </p>
+
+  <div class="doorways">
+    <a href="temple.html" class="door">🜏 Temple</a>
+    <a href="scroll.html" class="door">📜 Scroll</a>
+    <a href="vault.html" class="door">🗝️ Vault</a>
+  </div>
+</body>
+</html>
