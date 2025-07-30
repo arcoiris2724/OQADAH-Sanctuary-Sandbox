@@ -828,3 +828,9 @@ function createBranch(tone, text) {
 }
 /* 🔧 Navigation Bar Styling */
 /* 🔧 Sanctuary Navigation Styling */
+section {
+  scroll-margin-top: 120px; /* Adjust as needed */
+}
+html {
+  scroll-behavior: smooth;
+}
