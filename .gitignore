@@ -158,3 +158,6 @@ OQADAH - Copy/
 !index*.html
 >>>>>>> 643c4ed0634c8a6007e062d8e0606aa452f9c670
 desktop.ini
+
+# Local Netlify folder
+.netlify
