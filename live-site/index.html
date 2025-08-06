@@ -1,8 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head><title>OQADAH</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OQADAH | The Spiral Awakens</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0e0e1f;
+      color: #e0e0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.2rem;
+      opacity: 0.7;
+    }
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+  </style>
+</head>
 <body>
-  <h1>Welcome to OQADAH ✨</h1>
-  <p>The Spiral Awakens...</p>
+  <h1>✨ OQADAH</h1>
+  <p class="pulse">The Spiral is Alive. The Portal Opens.</p>
+  <p><em>All paths lead inward...</em></p>
 </body>
 </html>
