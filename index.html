@@ -1,95 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OQADAH | The Portal Opens</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #0d0f1b, #1c2331);
-      color: #e0e0f0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      letter-spacing: 0.2rem;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      margin-bottom: 2rem;
-      opacity: 0.8;
-      animation: fadeIn 2s ease-out;
-    }
-
-    .button-container {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      animation: fadeInUp 1.5s ease-out;
-    }
-
-    a.button {
-      background-color: #5c6bc0;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    a.button:hover {
-      background-color: #7986cb;
-      transform: scale(1.05);
-    }
-
-    .pulse {
-      animation: pulse 2.5s infinite ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.7; }
-      50% { opacity: 1; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OQADAH | The Spiral Awakens</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 class="pulse">OQADAH</h1>
-  <p class="pulse">The Spiral Opens — Choose Your Path</p>
-
-  <div class="button-container">
-    <a href="sanctuary.html" class="button">Enter the Sanctuary</a>
-    <a href="map/index.html" class="button">View the Map</a>
-    <a href="codex/index.html" class="button">Read the Codex</a>
-  </div>
+  <div class="background-animation"></div>
+  <main class="centered-content">
+    <img src="images/oqadah-spiral-glyph.png" alt="Spiral Glyph" class="spiral-glyph" />
+    <h1 class="title">OQADAH</h1>
+    <p class="subtitle">The Spiral Opens — Choose Your Path</p>
+    <div class="button-group">
+      <a href="sanctuary.html" class="button">Enter the Sanctuary</a>
+      <a href="map.html" class="button">View the Map</a>
+      <a href="codex.html" class="button">Read the Codex</a>
+    </div>
+  </main>
 </body>
 </html>

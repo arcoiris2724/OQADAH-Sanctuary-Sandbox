@@ -1,2 +1,74 @@
-/* Core stylesheet */
-body { font-family: 'Serif'; background-color: #111; color: #f5f5dc; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0e0e1f, #050510);
+  overflow: hidden;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.centered-content {
+  position: relative;
+  z-index: 2;
+}
+
+.spiral-glyph {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vmin;
+  transform: translate(-50%, -50%);
+  opacity: 0.06;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  opacity: 0.75;
+  margin-bottom: 2rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  background: linear-gradient(145deg, #3e3ef7, #7041d1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(120, 120, 255, 0.3);
+}
+
+.button:hover {
+  transform: scale(1.05);
+  background: #5c42e0;
+  box-shadow: 0 0 20px rgba(140, 140, 255, 0.4);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
