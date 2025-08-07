@@ -1,5 +1,4 @@
-
-/* Reset & base styles */
+/* Root Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -7,81 +6,95 @@
 }
 
 body {
-  background: linear-gradient(145deg, #0f0f1a, #1c1c2e);
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  color: #fff;
+  background: radial-gradient(ellipse at center, #0e0e25 0%, #01010a 100%);
+  background-image: url('spiral.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50vmin;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  overflow-x: hidden;
-  text-align: center;
-  padding: 2rem;
-}
-
-/* Portal header */
-h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  letter-spacing: 0.1rem;
-  text-shadow: 0 0 10px #7f5af0;
-}
-
-p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  color: #cdd6f4;
-}
-
-/* Buttons */
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  min-height: 100vh;
 }
 
-a.button {
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  background-color: #7f5af0;
-  color: white;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+/* Gradient Animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-a.button:hover {
-  background-color: #6249c2;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+/* Portal Container */
+.portal {
+  max-width: 600px;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  position: relative;
 }
 
-/* Spiral glyph background */
-body::before {
-  content: "";
+/* Glyph Background Placeholder */
+.portal::before {
+  content: '';
   background: url('spiral.svg') no-repeat center center;
-  background-size: contain;
+  background-size: 60%;
   opacity: 0.05;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
 }
 
-/* Ensure text and buttons stay on top */
-h1, p, .buttons {
+/* Title and Subtitle */
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ccc;
   position: relative;
   z-index: 1;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
+/* Buttons */
+.portal a {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(72, 144, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.portal a:hover {
+  background: linear-gradient(135deg, #6a89cc, #1e3799);
+  box-shadow: 0 0 15px rgba(111, 168, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 500px) {
   h1 {
     font-size: 2rem;
   }
@@ -90,13 +103,8 @@ h1, p, .buttons {
     font-size: 1rem;
   }
 
-  a.button {
-    width: 100%;
-    text-align: center;
-  }
-
-  .buttons {
-    flex-direction: column;
-    gap: 0.75rem;
+  .portal a {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
   }
 }
