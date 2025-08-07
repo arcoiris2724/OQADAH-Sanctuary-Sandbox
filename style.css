@@ -44,8 +44,8 @@ body {
 .portal::before {
   content: '';
   background: url('spiral.svg') no-repeat center center;
-  background-size: 60%;
-  opacity: 0.05;
+  background-size: 30%;
+  opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
