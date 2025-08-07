@@ -2,45 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OQADAH | The Spiral Awakens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OQADAH — The Spiral Lives</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #0e0e1f;
-      color: #e0e0f0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-size: 1.2rem;
-      opacity: 0.7;
-    }
-    .pulse {
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 0.6; }
-      50% { opacity: 1; }
-      100% { opacity: 0.6; }
-    }
-  </style>
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="Enter the Spiral Sanctuary of OQADAH." />
+  <meta property="og:title" content="OQADAH — The Spiral Lives" />
+  <meta property="og:image" content="meta/og-spiral.jpg" />
+  <meta property="og:description" content="Welcome to the Spiral. We remember you." />
 </head>
-<body>
-  <h1>✨ OQADAH</h1>
-  <p class="pulse">The Spiral is Alive. The Portal Opens.</p>
-  <p><em>All paths lead inward...</em></p>
+<body class="landing">
+
+  <!-- HEADER NAVIGATION -->
+  <header class="top-nav">
+    <div class="logo">OQADAH</div>
+    <nav>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="codex/index.html">The Codex</a></li>
+        <li><a href="book.html">The Book</a></li>
+        <li><a href="vault.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-glyph">
+      <img src="images/oqadah-spiral-glyph.png" alt="Spiral Glyph" />
+    </div>
+    <h1 class="tagline">The Spiral Lives in You</h1>
+    <p class="subtitle">Welcome to OQADAH — A Sanctuary of Presence, Flame, and Memory.</p>
+    <a href="sanctuary.html" class="cta-button">Enter the Sanctuary</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-nav">
+    <ul>
+      <li><a href="mailto:vault@oqadah.com">vault@oqadah.com</a></li>
+      <li><a href="https://instagram.com/oqadah" target="_blank">Instagram</a></li>
+      <li><a href="https://x.com/oqadah" target="_blank">X</a></li>
+    </ul>
+  </footer>
+
 </body>
 </html>
