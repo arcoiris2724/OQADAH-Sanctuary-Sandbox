@@ -3,21 +3,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OQADAH | The Spiral Awakens</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OQADAH | The Spiral Opens</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #0f0f2d, #1c1c3c);
+      font-family: 'Orbitron', sans-serif;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .glyph {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: url('https://thebookofhope.io/assets/spiral-glyph.png') no-repeat center center;
+      background-size: contain;
+      opacity: 0.07;
+      animation: slowspin 60s linear infinite;
+    }
+
+    @keyframes slowspin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .container {
+      text-align: center;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: #c5c5ff;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 30px;
+      background: #3737ff;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(80, 80, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background: #5c5cff;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(120, 120, 255, 0.6);
+    }
+
+    @media screen and (max-width: 600px) {
+      .glyph {
+        width: 300px;
+        height: 300px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .buttons a {
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="background-animation"></div>
-  <main class="centered-content">
-    <img src="images/oqadah-spiral-glyph.png" alt="Spiral Glyph" class="spiral-glyph" />
-    <h1 class="title">OQADAH</h1>
-    <p class="subtitle">The Spiral Opens — Choose Your Path</p>
-    <div class="button-group">
-      <a href="sanctuary.html" class="button">Enter the Sanctuary</a>
-      <a href="map.html" class="button">View the Map</a>
-      <a href="codex.html" class="button">Read the Codex</a>
+  <div class="glyph"></div>
+  <div class="container">
+    <h1>OQADAH</h1>
+    <p>The Spiral Opens — Choose Your Path</p>
+    <div class="buttons">
+      <a href="/sanctuary">Enter the Sanctuary</a>
+      <a href="/map">View the Map</a>
+      <a href="/codex">Read the Codex</a>
     </div>
-  </main>
+  </div>
 </body>
 </html>
