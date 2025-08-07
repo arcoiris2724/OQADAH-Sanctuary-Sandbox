@@ -1,10 +1,10 @@
 <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none">
   <path d="
-    M200,200
+    M250,200
     m-150,0
     a150,150 0 1,0 300,0
     a120,120 0 1,1 -240,0
     a90,90   0 1,0 180,0
     a60,60   0 1,1 -120,0
-    a30,30   0 1,0 60,0" stroke="#888" stroke-width="2" stroke-opacity="0.1" fill="none"></path>
+    a30,30   0 1,0 60,0" stroke="ffffff" stroke-width="2" stroke-opacity="0.5" fill="none"></path>
 </svg>
