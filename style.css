@@ -41,11 +41,16 @@ body {
 }
 
 /* Glyph Background Placeholder */
+.portal {
+  position: relative;
+  z-index: 1;
+}
+
 .portal::before {
-  content: '';
+  content: "";
   background: url('spiral.svg') no-repeat center center;
   background-size: 30%;
-  opacity: 1;
+  opacity: 1; /* Change to 0.1 after confirming it's visible */
   position: absolute;
   top: 0;
   left: 0;
