@@ -1,74 +1,102 @@
 
-body {
+/* Reset & base styles */
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top, #0e0e1f, #050510);
-  overflow: hidden;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(145deg, #0f0f1a, #1c1c2e);
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
   text-align: center;
+  padding: 2rem;
 }
 
-.centered-content {
-  position: relative;
-  z-index: 2;
+/* Portal header */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1rem;
+  text-shadow: 0 0 10px #7f5af0;
 }
 
-.spiral-glyph {
+p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #cdd6f4;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+a.button {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  background-color: #7f5af0;
+  color: white;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+a.button:hover {
+  background-color: #6249c2;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Spiral glyph background */
+body::before {
+  content: "";
+  background: url('spiral.svg') no-repeat center center;
+  background-size: contain;
+  opacity: 0.05;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 60vmin;
   transform: translate(-50%, -50%);
-  opacity: 0.06;
+  width: 80%;
+  height: 80%;
+  z-index: 0;
+}
+
+/* Ensure text and buttons stay on top */
+h1, p, .buttons {
+  position: relative;
   z-index: 1;
-  pointer-events: none;
 }
 
-.title {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  opacity: 0.75;
-  margin-bottom: 2rem;
-}
-
-.button-group {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.button {
-  background: linear-gradient(145deg, #3e3ef7, #7041d1);
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(120, 120, 255, 0.3);
-}
-
-.button:hover {
-  transform: scale(1.05);
-  background: #5c42e0;
-  box-shadow: 0 0 20px rgba(140, 140, 255, 0.4);
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.8;
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
   }
-  50% {
-    opacity: 1;
+
+  p {
+    font-size: 1rem;
+  }
+
+  a.button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 }
