@@ -1,1 +1,128 @@
+/* Sanctuary Preview — matches the portal vibe */
+:root{
+  --bg-top:#0b122e;
+  --bg-bot:#161b3a;
+  --card:#0f1430cc;          /* glass card bg */
+  --stroke:rgba(255,255,255,.08);
+  --text:#e8ecff;
+  --muted:#b7c0ff;
+  --accent:#5c5cff;
+  --accent-2:#7aa3ff;
+  --shadow:0 20px 50px rgba(0,0,0,.45);
+}
 
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #1f2a63 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bot));
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  min-height:46vh;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(800px 300px at 50% 10%, rgba(124,150,255,.15), transparent 65%),
+    radial-gradient(1000px 500px at 50% 0%, rgba(92,92,255,.2), transparent 70%);
+  border-bottom:1px solid var(--stroke);
+}
+.hero-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.55) saturate(1.05);
+  opacity:.85;
+  pointer-events:none;
+}
+.hero-text{
+  position:relative;
+  text-align:center;
+  padding:2rem;
+  text-shadow:0 6px 30px rgba(0,0,0,.45);
+}
+.hero-text h1{
+  margin:.2rem 0 .4rem;
+  font-size:clamp(1.8rem, 3.8vw, 3rem);
+  letter-spacing:.08em;
+}
+.hero-text p{
+  margin:0;
+  color:var(--muted);
+}
+
+/* Content card */
+.content{
+  max-width:min(1100px, 92vw);
+  margin:-60px auto 6rem;
+  padding:2.2rem;
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:28px;
+  backdrop-filter:blur(14px);
+  box-shadow:var(--shadow);
+}
+.content h2{
+  margin:0 0 .6rem;
+  font-size:clamp(1.2rem, 2.2vw, 1.6rem);
+}
+.content section+section{ margin-top:2rem; }
+
+/* Explore grid */
+.content ul{
+  list-style:none;
+  padding:0; margin:1rem 0 0;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:1rem;
+}
+.content li a{
+  display:block;
+  padding:1rem 1.1rem;
+  border-radius:18px;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(160deg, var(--accent) 0%, #2436a8 55%, #0d1a52 100%);
+  box-shadow:0 10px 24px rgba(35,50,160,.35);
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.content li a:hover{
+  transform:translateY(-2px);
+  filter:saturate(1.08);
+  box-shadow:0 16px 32px rgba(35,50,160,.45);
+}
+
+/* Footer */
+footer{
+  max-width:min(1100px, 92vw);
+  margin:-4rem auto 6rem;
+  display:flex; justify-content:flex-start;
+}
+footer a{
+  display:inline-block;
+  padding:.85rem 1.2rem;
+  border-radius:14px;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(160deg, #2c376c, #18224f);
+  border:1px solid var(--stroke);
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+
+/* Mobile */
+@media (max-width:720px){
+  .hero{ min-height:40vh; }
+  .content{ padding:1.4rem; border-radius:22px; }
+  .content ul{ grid-template-columns:1fr; }
+  footer{ margin:-2rem auto 4rem; }
+}
