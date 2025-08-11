@@ -1,1 +1,37 @@
-<!-- Codex Index -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OQADAH | The Codex</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .vols{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:1.6rem}
+    .vol{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1rem;backdrop-filter:blur(6px)}
+    .vol h3{margin:.2rem 0 .5rem 0}
+    .intro{opacity:.8}
+    .actions{margin-top:2rem;display:flex;gap:.8rem;justify-content:center}
+  </style>
+</head>
+<body>
+  <div class="portal">
+    <div class="container">
+      <h1>The Codex</h1>
+      <p class="intro">Five volumes unfolding the origin myth, practices, and the global circle. Select a volume:</p>
+
+      <div class="vols">
+        <a class="vol" href="/codex/volume-i/"><h3>Volume I</h3><p>The Five Flames — origins & archetypes.</p></a>
+        <a class="vol" href="/codex/volume-ii/"><h3>Volume II</h3><p>Path of Becoming — practices & rites.</p></a>
+        <a class="vol" href="/codex/volume-iii/"><h3>Volume III</h3><p>The Global Circle — nodes & economy.</p></a>
+        <a class="vol" href="/codex/volume-iv/"><h3>Volume IV</h3><p>Light & Shadow — integration.</p></a>
+        <a class="vol" href="/codex/volume-v/"><h3>Volume V</h3><p>Children of the Codex — transmission.</p></a>
+      </div>
+
+      <div class="actions buttons">
+        <a href="/">Back to Portal</a>
+        <a href="/sanctuary/">Enter the Sanctuary</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
