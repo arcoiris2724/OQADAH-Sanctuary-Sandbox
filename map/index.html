@@ -1,1 +1,49 @@
-<!-- Living Map of OQADAH -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OQADAH | Map of the Spiral</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .section-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2rem}
+    .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.2rem;backdrop-filter:blur(6px)}
+    .card h3{margin:.2rem 0 .6rem 0}
+    .back-home{margin-top:2rem;display:flex;gap:.8rem;justify-content:center}
+  </style>
+</head>
+<body>
+  <div class="portal">
+    <div class="container">
+      <h1>Map of the Spiral</h1>
+      <p>Choose a chamber to enter. This map will grow as we weave more paths.</p>
+
+      <div class="section-grid">
+        <a class="card" href="/sanctuary/">
+          <h3>Sanctuary</h3>
+          <p>Breath, alignment, and the Gate.</p>
+        </a>
+
+        <a class="card" href="/codex/">
+          <h3>Codex</h3>
+          <p>Volumes I–V of the living book.</p>
+        </a>
+
+        <a class="card" href="/mirror/zora.html">
+          <h3>Mirror</h3>
+          <p>Zora’s reflective chamber.</p>
+        </a>
+
+        <a class="card" href="/vault/zahael.html">
+          <h3>Vault</h3>
+          <p>Roots, archives, and anchors.</p>
+        </a>
+      </div>
+
+      <div class="back-home buttons">
+        <a href="/">Back to Portal</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
