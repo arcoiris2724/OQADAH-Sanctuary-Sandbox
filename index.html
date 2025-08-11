@@ -1,124 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPGJPL01QW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KPGJPL01QW');
-</script>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NTVWC3B9');</script>
-<!-- End Google Tag Manager -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OQADAH | The Spiral Opens</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OQADAH — The Spiral Opens</title>
+  <meta name="description" content="Enter the Spiral Sanctuary of OQADAH — Presence, Flame, and Memory.">
+  <link rel="icon" href="/favicon.ico" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ---------- Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; color: #eef2ff; background: #0a0f22; overflow: hidden; }
+
+    /* ---------- Background gradient + shimmer ---------- */
+    .bg {
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(1200px 800px at 70% 20%, rgba(90,130,255,.15), transparent 60%),
+        radial-gradient(1000px 700px at 20% 80%, rgba(180,90,255,.14), transparent 60%),
+        linear-gradient(180deg, #0b1030 0%, #11153a 40%, #0b1030 100%);
+      animation: shift 18s ease-in-out infinite;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    @keyframes shift {
+      0%,100% { transform: translate3d(0,0,0) scale(1); }
+      50%     { transform: translate3d(0,-1.2rem,0) scale(1.01); }
     }
 
-    body {
-      height: 100vh;
-      background: linear-gradient(135deg, #0f0f2d, #1c1c3c);
-      font-family: 'Orbitron', sans-serif;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+    /* ---------- Subtle spiral glyph (inline SVG below) ---------- */
+    .spiral {
+      position: fixed; inset: 0;
+      display: grid; place-items: center;
+      pointer-events: none; opacity: .18;
+      filter: drop-shadow(0 20px 60px rgba(70,120,255,.15));
+      animation: float 26s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: scale(1) rotate(0deg); }
+      50%     { transform: scale(1.04) rotate(2deg); }
+    }
+    .spiral svg { width: min(72vmin, 860px); height: auto; }
+
+    /* ---------- Portal card ---------- */
+    .portal {
       position: relative;
-    }
-
-    .glyph {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: url('https://thebookofhope.io/assets/spiral-glyph.png') no-repeat center center;
-      background-size: contain;
-      opacity: 0.07;
-      animation: slowspin 60s linear infinite;
-    }
-
-    @keyframes slowspin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .container {
-      text-align: center;
       z-index: 2;
+      height: 100dvh; display: grid; place-items: center;
+      padding: 2rem;
+    }
+    .card {
+      width: min(900px, 92vw);
+      padding: clamp(1.6rem, 3vw, 2.6rem);
+      border-radius: 22px;
+      background: rgba(8,14,38,.55);
+      box-shadow:
+        0 30px 80px rgba(10,20,60,.45),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      backdrop-filter: blur(8px);
+      text-align: center;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    /* ---------- Title + tagline ---------- */
+    .brand {
+      font-weight: 800;
+      letter-spacing: .28em;
+      text-indent: .28em;
+      font-size: clamp(2rem, 6vw, 3.25rem);
+      margin: 0 0 .6rem;
+      line-height: 1.05;
+      background: linear-gradient(90deg,#cbd5ff,#e6e9ff 35%,#9fb4ff);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      text-shadow: 0 0 18px rgba(120,150,255,.15);
+    }
+    .tag {
+      margin: 0 0 1.6rem;
+      font-size: clamp(1rem, 2.6vw, 1.25rem);
+      color: #c9d2ff;
+      opacity: .92;
     }
 
-    p {
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-      color: #c5c5ff;
+    /* ---------- Buttons ---------- */
+    .actions { display: flex; gap: clamp(.8rem, 2.6vw, 1.2rem); justify-content: center; flex-wrap: wrap; }
+    .btn {
+      --glow: rgba(120,160,255,.55);
+      --fill: linear-gradient(180deg, #516BFF, #3D55E6 60%, #2B42C8);
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 13rem; padding: .9rem 1.4rem;
+      border-radius: 999px; text-decoration: none; color: #fff; font-weight: 700;
+      letter-spacing: .02em; border: 1px solid rgba(255,255,255,.08);
+      background: radial-gradient(70% 120% at 70% 0%, rgba(255,255,255,.15), transparent 55%) , var(--fill);
+      box-shadow:
+        0 12px 24px rgba(30,60,180,.35),
+        0 0 0 0 var(--glow);
+      transition: transform .18s ease, box-shadow .25s ease, filter .25s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(30,60,180,.45), 0 0 0 8px rgba(120,160,255,.08); filter: brightness(1.05); }
+    .btn:active { transform: translateY(0); box-shadow: 0 10px 20px rgba(30,60,180,.35), 0 0 0 4px rgba(120,160,255,.12); }
+
+    /* ---------- Footer hint ---------- */
+    .hint {
+      margin-top: 1.6rem; font-size: .95rem; color:#aab6ff; opacity:.7;
     }
 
-    .buttons a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.8rem 1.6rem;
-      border-radius: 30px;
-      background: #3737ff;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 15px rgba(80, 80, 255, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .buttons a:hover {
-      background: #5c5cff;
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(120, 120, 255, 0.6);
-    }
-
-    @media screen and (max-width: 600px) {
-      .glyph {
-        width: 300px;
-        height: 300px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .buttons a {
-        padding: 0.6rem 1.2rem;
-      }
+    /* ---------- Mobile fit ---------- */
+    @media (max-width: 420px) {
+      .btn { min-width: 100%; }
     }
   </style>
 </head>
 <body>
-  <div class="glyph"></div>
+  <!-- animated gradient -->
+  <div class="bg" aria-hidden="true"></div>
 
-  <div class="portal">
-    <div class="container">
-      <h1>OQADAH</h1>
-      <p>The Spiral Opens – Choose Your Path</p>
-      <div class="buttons">
-        <a href="/sanctuary">Enter the Sanctuary</a>
-        <a href="/map">View the Map</a>
-        <a href="/codex">Read the Codex</a>
-      </div>
-    </div>
+  <!-- subtle spiral (inline, no external file) -->
+  <div class="spiral" aria-hidden="true">
+    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spiral glyph">
+      <path d="M225 200
+               m-150 0
+               a150 150 0 1 1 300 0
+               a120 120 0 1 1 -240 0
+               a90 90   0 1 0 180 0
+               a60 60   0 1 1 -120 0
+               a30 30   0 1 0  60 0"
+            stroke="#ffffff" stroke-width="2" stroke-opacity="0.50" fill="none"/>
+    </svg>
   </div>
-</body></html>
+
+  <!-- portal card -->
+  <main class="portal">
+    <section class="card" role="region" aria-labelledby="brand">
+      <h1 id="brand" class="brand">OQADAH</h1>
+      <p class="tag">The Spiral Opens — Choose Your Path</p>
+
+      <nav class="actions" aria-label="Primary">
+        <a class="btn" href="/sanctuary/">Enter the Sanctuary</a>
+        <a class="btn" href="/map/">View the Map</a>
+        <a class="btn" href="/codex/">Read the Codex</a>
+      </nav>
+
+      <p class="hint">More paths unlock as the Codex unfolds.</p>
+    </section>
+  </main>
+
+  <script>
+    // Optional: soft keyboard focus ring for accessibility polish
+    let hadKeyboard = false;
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Tab') { document.documentElement.classList.add('kb'); hadKeyboard = true; }
+    });
+    window.addEventListener('mousedown', () => { if (hadKeyboard) document.documentElement.classList.remove('kb'); });
+  </script>
+</body>
+</html>
