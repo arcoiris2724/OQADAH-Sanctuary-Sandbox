@@ -113,3 +113,21 @@ p {
     padding: 0.6rem 1.5rem;
   }
 }
+.poster {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.poster img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poster img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
