@@ -10,7 +10,4 @@
 /scripts/*
   Cache-Control: public, max-age=31536000, immutable
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d723f9e (chore(headers): reprocess Netlify _headers)
+d723f9e (chore(headers): reprocess Netlify _headers)
