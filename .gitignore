@@ -12,3 +12,9 @@ netlify.toml.backup
 .vscode/
 *.tmp
 *.swp
+# Netlify
+.netlify/
+Assets/images/oqadah-poster2.jpeg
+
+# Netlify local state
+.netlify/
