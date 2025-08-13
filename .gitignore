@@ -12,3 +12,5 @@ netlify.toml.backup
 .vscode/
 *.tmp
 *.swp
+# Netlify
+.netlify/
