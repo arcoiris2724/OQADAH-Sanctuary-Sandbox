@@ -21,3 +21,9 @@ jobs:
           echo "$status_line"
           echo "$status_line" | grep -q "200"
           echo "SPA OK"
+      - name: Slack notify on failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"Uptime Ping failed on oqadah.com"}' \
+            "$SLACK_WEBHOOK_URL"
