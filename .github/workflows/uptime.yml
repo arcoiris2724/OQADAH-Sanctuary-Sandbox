@@ -27,3 +27,11 @@ jobs:
           curl -X POST -H 'Content-type: application/json' \
             --data '{"text":"Uptime Ping failed on oqadah.com"}' \
             "$SLACK_WEBHOOK_URL"
+    - name: Check security headers
+      run: |
+        set -e
+        headers=$(curl -Is --max-time 10 https://oqadah.com | grep -E "Strict-Transport-Security|X-Content-Type-Options|Referrer-Policy")
+        echo "$headers" | grep "Strict-Transport-Security"
+        echo "$headers" | grep "X-Content-Type-Options"
+        echo "$headers" | grep "Referrer-Policy"
+        echo "Security headers OK"
