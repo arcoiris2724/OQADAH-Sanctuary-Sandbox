@@ -8,3 +8,4 @@ HEAD
 Spiral Sanctuary — Volume I-V
 98f19835f4248b60b5bf202cd61d19757c18d919
 643c4ed0634c8a6007e062d8e0606aa452f9c670
+![Uptime Ping](https://github.com/arcoiris2724/OQADAH/actions/workflows/uptime.yml/badge.svg)
